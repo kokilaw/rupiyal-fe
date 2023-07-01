@@ -12,7 +12,7 @@ export default function MyTabs({ styles }) {
     <div className={`${styles}`}>
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1 backdrop-blur-sm">
-          {tabStrings.map((tab) => (
+          {tabStrings.map((tab, index) => (
             <Tab
               className={({ selected }) =>
                 classNames(
@@ -23,6 +23,7 @@ export default function MyTabs({ styles }) {
                     : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
                 )
               }
+              key={index}
             >
               {tab}
             </Tab>

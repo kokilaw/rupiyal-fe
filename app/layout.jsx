@@ -1,8 +1,8 @@
 import '@styles/globals.css';
 
 export const metadata = {
-  title: 'Promptopia',
-  description: 'Discover & share AI prompts',
+  title: 'rupiyal.lk',
+  description: 'Calculate currency and foreign exchange rates related to Sri Lankan Rupee (LKR) with the free rupiyal.lk Currency Converter. Compare the rates between Sri Lankan banks and other financial institutes.',
 };
 
 const RootLayout = ({ children }) => (
