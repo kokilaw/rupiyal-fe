@@ -5,13 +5,13 @@ import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
 const people = [
-  { id: 1, name: 'Bank of Ceylon' },
-  { id: 2, name: 'Nations Trust Bank' },
-  { id: 3, name: 'Commercial Bank' },
-  { id: 4, name: 'Nation Savings Bank' },
+  { id: 1, name: 'USD' },
+  { id: 2, name: 'AUD' },
+  { id: 3, name: 'SGD' },
+  { id: 4, name: 'NZD' },
 ];
 
-export default function BankSelector({ styles }) {
+export default function CurrencySelector({ styles }) {
   const [selected, setSelected] = useState(people[0]);
   const [query, setQuery] = useState('');
 
