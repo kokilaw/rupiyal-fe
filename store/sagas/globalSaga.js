@@ -1,22 +1,14 @@
-import { call, takeEvery, put, select } from 'redux-saga/effects';
-import Axios from 'axios';
+import { takeEvery, put, select } from 'redux-saga/effects';
 
 import { GLOBAL_ACTION_TYPES } from '@store/actions/globalActions';
 import {
   setBankDetails,
   setAllRates,
   setSelectedRates,
+  setCurrencies,
 } from '@store/globalSlice';
 
 const getGlobalState = (state) => state.global;
-
-const callAPI = async ({ url, method, data }) => {
-  return await Axios({
-    url,
-    method,
-    data,
-  });
-};
 
 const getCurrencyData = (ratesMap) => {
   let currencyNames = new Intl.DisplayNames(['en'], { type: 'currency' });
@@ -34,37 +26,32 @@ const getCurrencyData = (ratesMap) => {
   return currencyData;
 };
 
-export function* fetchStartUpData() {
+export function* fetchStartUpData(action) {
   try {
-    let bankDetailsResult = yield call(() =>
-      callAPI({
-        url: 'https://mocki.io/v1/a098da89-d72d-40f8-adee-d59c9be911ef',
-      })
-    );
+    const { bankDetailsData, allRatesData } = action.payload;
+    const { selectedMode, selectedCurrency } = yield select(getGlobalState);
 
     const bankDetailsMap = {};
-    bankDetailsResult.data.forEach((bank) => {
+    bankDetailsData.forEach((bank) => {
       bankDetailsMap[bank.bankCode] = bank;
     });
 
     yield put(setBankDetails(bankDetailsMap));
-
-    const ratesTodayResult = yield call(() =>
-      callAPI({
-        url: 'https://mocki.io/v1/483e7b0f-62a3-40ca-90a0-a75d3457c0b6',
-      })
-    );
-
-    const ratesTodayData = ratesTodayResult.data;
-    yield put(setAllRates(ratesTodayData));
-
-    const { selectedMode, selectedCurrency } = yield select(getGlobalState);
+    yield put(setAllRates(allRatesData));
 
     if ('BUY' === selectedMode) {
-      yield put(setSelectedRates(ratesTodayData.buyingRates[selectedCurrency]));
-    } else {
+      yield put(setSelectedRates(allRatesData.buyingRates[selectedCurrency]));
       yield put(
-        setSelectedRates(ratesTodayData.sellingRates[selectedCurrency])
+        setCurrencies(
+          getCurrencyData(allRatesData.buyingRates[selectedCurrency])
+        )
+      );
+    } else {
+      yield put(setSelectedRates(allRatesData.sellingRates[selectedCurrency]));
+      yield put(
+        setCurrencies(
+          getCurrencyData(allRatesData.sellingRates[selectedCurrency])
+        )
       );
     }
   } catch (e) {

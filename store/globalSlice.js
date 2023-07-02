@@ -4,7 +4,7 @@ import { keys } from 'lodash';
 import getSymbolFromCurrency from 'currency-symbol-map';
 
 const initialState = {
-  selectedCurrency: 'INR',
+  selectedCurrency: 'USD',
   selectedBankCode: 'BOC',
   selectedMode: 'BUY',
   allRates: [],
@@ -35,6 +35,9 @@ const globalSlice = createSlice({
     setBankDetails: (state, action) => {
       state.bankDetails = action.payload;
     },
+    setCurrencies: (state, action) => {
+      state.currencies = action.payload;
+    },
   },
 });
 
@@ -45,5 +48,6 @@ export const {
   setBankDetails,
   setAllRates,
   setSelectedRates,
+  setCurrencies
 } = globalSlice.actions;
 export default globalSlice.reducer;

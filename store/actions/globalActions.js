@@ -7,7 +7,8 @@ const GLOBAL_ACTION_TYPES = {
 };
 
 const fetchStartUpDataAction = createAction(
-  GLOBAL_ACTION_TYPES.FETCH_STARTUP_DATA
+  GLOBAL_ACTION_TYPES.FETCH_STARTUP_DATA,
+  (payload) => ({ payload })
 );
 
 const onModeChangeEventAction = createAction(
