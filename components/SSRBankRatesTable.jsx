@@ -4,10 +4,10 @@ import Providers from '@components/BankRatesTable';
 
 export default function SSRBankRatesTable() {
   const rates = store.getState().global.selectedRates;
-  console.log(rates)
+  const bankDetails = store.getState().global.bankDetails;
   return (
     <div>
-        <BankRatesTable rates={rates} />
+        <BankRatesTable rates={rates} bankDetails={bankDetails} />
     </div>
   );
 }
