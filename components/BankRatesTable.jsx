@@ -1,6 +1,7 @@
 'use client';
 
 import moment from "moment";
+import currency from "currency.js";
 
 export default function BankRatesTable({ rates, bankDetails }) {
   return (
@@ -39,7 +40,7 @@ export default function BankRatesTable({ rates, bankDetails }) {
                 <div className="text-gray-400 ">{bankDetails[entry.bankCode].longName}</div>
               </div>
             </th>
-            <td className="px-6 py-4">{entry.rate}</td>
+            <td className="px-6 py-4">{currency(entry.rate, {pattern: `#`}).format()}</td>
             <td className="px-6 py-4">{moment(entry.lastUpdated).fromNow()}</td>
           </tr>
         ))}
