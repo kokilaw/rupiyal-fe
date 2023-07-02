@@ -7,7 +7,7 @@ export default function SSRBankRatesTable() {
   const bankDetails = store.getState().global.bankDetails;
   return (
     <div>
-        <BankRatesTable rates={rates} bankDetails={bankDetails} />
+      <BankRatesTable rates={rates} bankDetails={bankDetails} />
     </div>
   );
 }

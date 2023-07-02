@@ -15,7 +15,7 @@ const people = [
 
 const CurrencySelector = ({ styles }) => {
   const dispatch = useDispatch();
-  const { currency, currencies } = useSelector((state) => state.global)
+  const { currency, currencies } = useSelector((state) => state.global);
 
   const [selected, setSelected] = useState(people[0]);
   const [query, setQuery] = useState('');
@@ -102,6 +102,6 @@ const CurrencySelector = ({ styles }) => {
       </Combobox>
     </div>
   );
-}
+};
 
 export default CurrencySelector;

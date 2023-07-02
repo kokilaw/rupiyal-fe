@@ -25,7 +25,6 @@ const getCurrencyData = (ratesMap) => {
       symbol: getSymbolFromCurrency(currencyCode),
     };
   });
-  console.log(`${JSON.stringify(currencyData)}`);
   return currencyData;
 };
 
