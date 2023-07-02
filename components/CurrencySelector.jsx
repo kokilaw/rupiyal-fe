@@ -1,30 +1,37 @@
 'use client';
 
-import { Fragment, useState } from 'react';
+import { keys, values } from 'lodash';
+
+import { Fragment, useState, useEffect } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-const people = [
-  { id: 1, name: 'USD' },
-  { id: 2, name: 'AUD' },
-  { id: 3, name: 'SGD' },
-  { id: 4, name: 'NZD' },
-];
+import { onCurrencyChangeEventAction } from '@store/actions/globalActions';
 
 const CurrencySelector = ({ styles }) => {
   const dispatch = useDispatch();
-  const { currency, currencies } = useSelector((state) => state.global);
+  const { selectedCurrency, currencies } = useSelector((state) => state.global);
 
-  const [selected, setSelected] = useState(people[0]);
+  const sortedCurrencyKeys = keys(currencies).sort();
+  const currencyOptions = sortedCurrencyKeys.map((currencyKey) => {
+    return {
+      id: currencyKey,
+      name: `${currencies[currencyKey].displayName} (${currencies[currencyKey].symbol})`,
+    };
+  });
+
+  const selected = currencyOptions.filter(
+    (currencyOption) => currencyOption.id === selectedCurrency
+  )[0];
   const [query, setQuery] = useState('');
 
-  const filteredPeople =
+  const filteredCurrencyOptions =
     query === ''
-      ? people
-      : people.filter((person) =>
-          person.name
+      ? currencyOptions
+      : currencyOptions.filter((currency) =>
+          currency.name
             .toLowerCase()
             .replace(/\s+/g, '')
             .includes(query.toLowerCase().replace(/\s+/g, ''))
@@ -32,7 +39,12 @@ const CurrencySelector = ({ styles }) => {
 
   return (
     <div className={`${styles}`}>
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox
+        value={selected}
+        onChange={(value) =>
+          dispatch(onCurrencyChangeEventAction({ currencyCode: value.id }))
+        }
+      >
         <div className="relative">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input
@@ -58,20 +70,20 @@ const CurrencySelector = ({ styles }) => {
             afterLeave={() => setQuery('')}
           >
             <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50">
-              {filteredPeople.length === 0 && query !== '' ? (
+              {filteredCurrencyOptions.length === 0 && query !== '' ? (
                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                   Nothing found.
                 </div>
               ) : (
-                filteredPeople.map((person) => (
+                filteredCurrencyOptions.map((currencyOption) => (
                   <Combobox.Option
-                    key={person.id}
+                    key={currencyOption.id}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
                         active ? 'bg-blue-400 text-white' : 'text-gray-900'
                       }`
                     }
-                    value={person}
+                    value={currencyOption}
                   >
                     {({ selected, active }) => (
                       <>
@@ -80,7 +92,7 @@ const CurrencySelector = ({ styles }) => {
                             selected ? 'font-medium' : 'font-normal'
                           }`}
                         >
-                          {person.name}
+                          {currencyOption.name}
                         </span>
                         {selected ? (
                           <span

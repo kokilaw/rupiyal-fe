@@ -8,6 +8,7 @@ import {
   setAllRates,
   setSelectedRates,
   setCurrencies,
+  setCurrency
 } from '@store/globalSlice';
 
 const getGlobalState = (state) => state.global;
@@ -54,6 +55,12 @@ export function* fetchStartUpData(action) {
   }
 }
 
+export function* handleCurrencyChangeEvent(action) {
+    const { currencyCode } = action.payload;
+    yield put(setCurrency(currencyCode));
+}
+
 export default function* rootSaga() {
   yield takeEvery(GLOBAL_ACTION_TYPES.FETCH_STARTUP_DATA, fetchStartUpData);
+  yield takeEvery(GLOBAL_ACTION_TYPES.ON_CURRENCY_CHANGE_EVENT, handleCurrencyChangeEvent);
 }
