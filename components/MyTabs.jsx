@@ -17,10 +17,10 @@ export default function MyTabs({ styles }) {
               className={({ selected }) =>
                 classNames(
                   'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black-700',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none ',
                   selected
                     ? 'bg-white shadow'
-                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                    : 'text-white/[0.5] hover:bg-white/[0.12] hover:text-white'
                 )
               }
               key={index}

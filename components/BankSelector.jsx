@@ -63,7 +63,7 @@ export default function BankSelector({ styles }) {
                     key={person.id}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-purple-200 text-white' : 'text-gray-900'
+                        active ? 'bg-blue-400 text-white' : 'text-gray-900'
                       }`
                     }
                     value={person}

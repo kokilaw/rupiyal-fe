@@ -1,12 +1,11 @@
-
 import SSRBankRatesTable from '@components/SSRBankRatesTable';
 import ConverterCard from '@components/ConverterCard';
+import Providers from '@components/Provider';
 
 import { store } from '@store';
 import { setSelectedRates, setBankCode } from '@store/globalSlice';
 
 const Home = () => {
-
   const entries = [
     {
       bankShortName: 'BOC',
@@ -50,11 +49,13 @@ const Home = () => {
         <div className="mx-auto max-w-fit py-8 md:py-16 lg:py-56">
           <div className={`grid grid-cols-5 gap-4`}>
             <div className="col-span-5 lg:col-span-2">
-              <ConverterCard/>
+              <Providers>
+                <ConverterCard />
+              </Providers>
             </div>
             <div className="col-span-5 lg:col-span-3">
               <div className="overflow-auto rounded-lg border border-gray-200 shadow-md">
-                <SSRBankRatesTable/>
+                <SSRBankRatesTable />
               </div>
             </div>
           </div>

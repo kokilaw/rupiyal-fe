@@ -9,13 +9,11 @@ import { ArrowsUpDownIcon } from '@heroicons/react/20/solid';
 export default function ConverterCard({ styles }) {
   return (
     <div className="rounded-lg border border-gray-200 shadow-md px-6 py-4 bg-white bg-opacity-40 backdrop-blur-sm">
-      <p className="text-center text-base text-gray-900 mb-1">I Want To</p>
+      <p className="text-center text-gray-900 mb-1 text-sm font-medium">I Want To</p>
       <MyTabs styles="mb-6" />
-      <p className="text-center text-base text-gray-900 mb-1">
-        Select Currency
-      </p>
+      <p className="text-center text-gray-900 mb-1 text-sm font-medium">Select Currency</p>
       <CurrencySelector styles="mb-6" />
-      <p className="text-center text-base text-gray-900 mb-1">Select Bank</p>
+      <p className="text-center text-gray-900 mb-1 text-sm font-medium">Select Bank</p>
       <BankSelector />
       <hr className="my-6 h-0.5 border-t-0 bg-blue-900/20 opacity-100" />
       <div>
@@ -27,7 +25,7 @@ export default function ConverterCard({ styles }) {
             type="text"
             name="price"
             id="price"
-            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-200 sm:text-sm sm:leading-6 text-end"
+            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 text-end"
             placeholder="0.00"
           />
         </div>
@@ -50,7 +48,7 @@ export default function ConverterCard({ styles }) {
             name="price"
             id="price"
             disabled={true}
-            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-200 sm:text-sm sm:leading-6 text-end"
+            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 text-end"
             placeholder="0.00"
           />
         </div>

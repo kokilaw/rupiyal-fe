@@ -4,6 +4,8 @@ import { Fragment, useState } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 const people = [
   { id: 1, name: 'USD' },
   { id: 2, name: 'AUD' },
@@ -11,7 +13,10 @@ const people = [
   { id: 4, name: 'NZD' },
 ];
 
-export default function CurrencySelector({ styles }) {
+const CurrencySelector = ({ styles }) => {
+  const dispatch = useDispatch();
+  const { currency, currencies } = useSelector((state) => state.global)
+
   const [selected, setSelected] = useState(people[0]);
   const [query, setQuery] = useState('');
 
@@ -63,7 +68,7 @@ export default function CurrencySelector({ styles }) {
                     key={person.id}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-purple-200 text-white' : 'text-gray-900'
+                        active ? 'bg-blue-400 text-white' : 'text-gray-900'
                       }`
                     }
                     value={person}
@@ -98,3 +103,5 @@ export default function CurrencySelector({ styles }) {
     </div>
   );
 }
+
+export default CurrencySelector;
