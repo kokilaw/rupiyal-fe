@@ -1,7 +1,4 @@
-import { createSlice, createAction } from '@reduxjs/toolkit';
-
-import { keys } from 'lodash';
-import getSymbolFromCurrency from 'currency-symbol-map';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   selectedCurrency: 'USD',
@@ -38,7 +35,7 @@ const globalSlice = createSlice({
     setCurrencies: (state, action) => {
       state.currencies = action.payload;
     },
-  },
+  }
 });
 
 export const {
@@ -48,6 +45,7 @@ export const {
   setBankDetails,
   setAllRates,
   setSelectedRates,
-  setCurrencies
+  setCurrencies,
 } = globalSlice.actions;
+export const selectGlobalState = (state) => state.global;
 export default globalSlice.reducer;

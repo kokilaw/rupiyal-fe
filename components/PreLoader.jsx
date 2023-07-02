@@ -2,14 +2,13 @@
 
 import { useRef } from 'react';
 import { store } from '@store';
-import { setRatesToday, setBankDetails } from '@store/globalSlice';
+import { fetchStartUpDataAction } from '@store/actions/globalActions';
 
-export default function PreLoader({ ratesTodayData, bankDetailsData }) {
+export default function PreLoader({ allRatesData, bankDetailsData }) {
   const loaded = useRef(false);
   if (!loaded.current) {
     loaded.current = true;
-    store.dispatch(setBankDetails(bankDetailsData));
-    store.dispatch(setRatesToday(ratesTodayData));
+    store.dispatch(fetchStartUpDataAction({ bankDetailsData, allRatesData }));
   }
   return null;
 }

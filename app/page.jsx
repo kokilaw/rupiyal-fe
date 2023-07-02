@@ -1,6 +1,7 @@
 import SSRBankRatesTable from '@components/SSRBankRatesTable';
 import ConverterCard from '@components/ConverterCard';
 import Providers from '@components/Provider';
+import PreLoader from '@components/PreLoader';
 
 import { store } from '@store';
 import { fetchStartUpDataAction } from '@store/actions/globalActions';
@@ -16,14 +17,15 @@ const Home = async () => {
   );
   const allRatesData = await allRatesDataReq.json();
 
-  store.dispatch(fetchStartUpDataAction({bankDetailsData, allRatesData}));
+  store.dispatch(fetchStartUpDataAction({ bankDetailsData, allRatesData }));
 
   return (
-    <Providers>
-      <div>
-        <div className="relative isolate lg:px-8">
-          <div className="mx-auto max-w-fit py-8 md:py-16 lg:py-56">
-            <div className={`grid grid-cols-5 gap-4`}>
+    <div>
+      <div className="relative isolate lg:px-8">
+        <div className="mx-auto max-w-fit py-8 md:py-16 lg:py-56">
+          <div className={`grid grid-cols-5 gap-4`}>
+            <PreLoader allRatesData={allRatesData} bankDetailsData={bankDetailsData} />
+            <Providers>
               <div className="col-span-5 lg:col-span-2">
                 <ConverterCard />
               </div>
@@ -32,11 +34,11 @@ const Home = async () => {
                   <SSRBankRatesTable />
                 </div>
               </div>
-            </div>
+            </Providers>
           </div>
         </div>
       </div>
-    </Providers>
+    </div>
   );
 };
 
