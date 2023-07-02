@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currency: 'USD',
+  currency: 'GBP',
   bankCode: 'BOC',
   mode: 'BUY',
   allRates: [],
   selectedRates: [],
+  currencies: [],
 };
 
 const globalSlice = createSlice({
