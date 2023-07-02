@@ -1,4 +1,6 @@
 import { takeEvery, put, select } from 'redux-saga/effects';
+import { keys } from 'lodash';
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 import { GLOBAL_ACTION_TYPES } from '@store/actions/globalActions';
 import {
@@ -11,7 +13,7 @@ import {
 const getGlobalState = (state) => state.global;
 
 const getCurrencyData = (ratesMap) => {
-  let currencyNames = new Intl.DisplayNames(['en'], { type: 'currency' });
+  const currencyNames = new Intl.DisplayNames(['en'], { type: 'currency' });
   const currencyCodes = keys(ratesMap);
   const currencyData = {};
   currencyCodes.forEach((currencyCode) => {
@@ -23,6 +25,7 @@ const getCurrencyData = (ratesMap) => {
       symbol: getSymbolFromCurrency(currencyCode),
     };
   });
+  console.log(`${JSON.stringify(currencyData)}`);
   return currencyData;
 };
 
@@ -41,18 +44,10 @@ export function* fetchStartUpData(action) {
 
     if ('BUY' === selectedMode) {
       yield put(setSelectedRates(allRatesData.buyingRates[selectedCurrency]));
-      yield put(
-        setCurrencies(
-          getCurrencyData(allRatesData.buyingRates[selectedCurrency])
-        )
-      );
+      yield put(setCurrencies(getCurrencyData(allRatesData.buyingRates)));
     } else {
       yield put(setSelectedRates(allRatesData.sellingRates[selectedCurrency]));
-      yield put(
-        setCurrencies(
-          getCurrencyData(allRatesData.sellingRates[selectedCurrency])
-        )
-      );
+      yield put(setCurrencies(getCurrencyData(allRatesData.sellingRates)));
     }
   } catch (e) {
     console.error(e);
