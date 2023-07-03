@@ -1,9 +1,31 @@
 'use client';
 
-import moment from "moment";
-import currency from "currency.js";
+import moment from 'moment';
+import currency from 'currency.js';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-export default function BankRatesTable({ rates, bankDetails }) {
+export default function BankRatesTable({
+  rates: initialRates,
+  bankDetails: initialBankDetails,
+}) {
+  const {
+    selectedRates: updatedSelectedRates,
+    bankDetails: updatedBankDetails,
+  } = useSelector((state) => state.global);
+  const [rates, setRates] = useState(initialRates);
+  const [bankDetails, setBankDetails] = useState(initialBankDetails);
+
+  useEffect(() => {
+    setBankDetails(updatedBankDetails);
+    return () => {};
+  }, [updatedBankDetails]);
+
+  useEffect(() => {
+    setRates(updatedSelectedRates);
+    return () => {};
+  }, [updatedSelectedRates]);
+
   return (
     <table className="w-full border-collapse text-left text-sm text-gray-500">
       <thead className="bg-gray-50 ">
@@ -37,10 +59,14 @@ export default function BankRatesTable({ rates, bankDetails }) {
                 <div className="font-medium text-gray-700">
                   {bankDetails[entry.bankCode].shortName}
                 </div>
-                <div className="text-gray-400 ">{bankDetails[entry.bankCode].longName}</div>
+                <div className="text-gray-400 ">
+                  {bankDetails[entry.bankCode].longName}
+                </div>
               </div>
             </th>
-            <td className="px-6 py-4">{currency(entry.rate, {pattern: `#`}).format()}</td>
+            <td className="px-6 py-4">
+              {currency(entry.rate, { pattern: `#` }).format()}
+            </td>
             <td className="px-6 py-4">{moment(entry.lastUpdated).fromNow()}</td>
           </tr>
         ))}

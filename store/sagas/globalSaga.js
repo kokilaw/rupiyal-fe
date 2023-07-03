@@ -2,7 +2,10 @@ import { takeEvery, put, select } from 'redux-saga/effects';
 import { keys } from 'lodash';
 import getSymbolFromCurrency from 'currency-symbol-map';
 
-import { GLOBAL_ACTION_TYPES } from '@store/actions/globalActions';
+import {
+  GLOBAL_ACTION_TYPES,
+  onMainVariableUpdatedEventAction,
+} from '@store/actions/globalActions';
 import {
   setBankDetails,
   setAllRates,
@@ -13,6 +16,7 @@ import {
   setMode,
 } from '@store/globalSlice';
 import { getCountryFlagEmoji } from '@common/utils/countryUtils';
+import { CURRENCY_MODE } from '@common/constants';
 
 const getGlobalState = (state) => state.global;
 
@@ -49,7 +53,7 @@ export function* fetchStartUpData(action) {
     yield put(setBankDetails(bankDetailsMap));
     yield put(setAllRates(allRatesData));
 
-    if ('BUY' === selectedMode) {
+    if (CURRENCY_MODE.BUY === selectedMode) {
       yield put(setSelectedRates(allRatesData.buyingRates[selectedCurrency]));
       yield put(setCurrencies(getCurrencyData(allRatesData.buyingRates)));
     } else {
@@ -65,16 +69,29 @@ export function* fetchStartUpData(action) {
 export function* handleCurrencyChangeEvent(action) {
   const { currencyCode } = action.payload;
   yield put(setCurrency(currencyCode));
+  yield put(onMainVariableUpdatedEventAction());
 }
 
 export function* handleBankChangeEvent(action) {
   const { bankCode } = action.payload;
   yield put(setBankCode(bankCode));
+  yield put(onMainVariableUpdatedEventAction());
 }
 
 export function* handleModeChangeEvent(action) {
   const { mode } = action.payload;
   yield put(setMode(mode));
+  yield put(onMainVariableUpdatedEventAction());
+}
+
+export function* handleOnMainVariableUpdatedEvent() {
+  yield put(setSelectedRates([]));
+  const { selectedMode, selectedCurrency, allRates } = yield select(getGlobalState);
+  if (CURRENCY_MODE.BUY === selectedMode) {
+    yield put(setSelectedRates(allRates.buyingRates[selectedCurrency]));
+  } else {
+    yield put(setSelectedRates(allRates.sellingRates[selectedCurrency]));
+  }
 }
 
 export default function* rootSaga() {
@@ -90,5 +107,9 @@ export default function* rootSaga() {
   yield takeEvery(
     GLOBAL_ACTION_TYPES.ON_MODE_CHANGE_EVENT,
     handleModeChangeEvent
+  );
+  yield takeEvery(
+    GLOBAL_ACTION_TYPES.ON_MAIN_VARIABLE_UPDATED_EVENT,
+    handleOnMainVariableUpdatedEvent
   );
 }

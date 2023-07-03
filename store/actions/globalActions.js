@@ -5,6 +5,7 @@ const GLOBAL_ACTION_TYPES = {
   ON_MODE_CHANGE_EVENT: 'ON_MODE_CHANGE_EVENT',
   ON_CURRENCY_CHANGE_EVENT: 'ON_CURRENCY_CHANGE_EVENT',
   ON_BANK_CHANGE_EVENT: 'ON_BANK_CHANGE_EVENT',
+  ON_MAIN_VARIABLE_UPDATED_EVENT: 'ON_MAIN_VARIABLE_UPDATED_EVENT',
 };
 
 const fetchStartUpDataAction = createAction(
@@ -27,10 +28,15 @@ const onBankChangeEventAction = createAction(
   (payload) => ({ payload })
 );
 
+const onMainVariableUpdatedEventAction = createAction(
+  GLOBAL_ACTION_TYPES.ON_MAIN_VARIABLE_UPDATED_EVENT,
+);
+
 export {
   GLOBAL_ACTION_TYPES,
   fetchStartUpDataAction,
   onModeChangeEventAction,
   onCurrencyChangeEventAction,
-  onBankChangeEventAction
+  onBankChangeEventAction,
+  onMainVariableUpdatedEventAction
 };
