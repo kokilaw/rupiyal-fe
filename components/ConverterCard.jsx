@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import MyTabs from '@components/MyTabs';
+import MyTabs from '@components/CurrencyModeTabs';
 import CurrencySelector from '@components/CurrencySelector';
 import BankSelector from '@components/BankSelector';
 
@@ -19,15 +19,19 @@ export default function ConverterCard({ styles }) {
       <p className="text-center text-gray-900 mb-1 text-sm font-medium">
         I Want To
       </p>
-      <MyTabs styles="mb-6" />
+      <div className="mb-6">
+        <MyTabs />
+      </div>
       <p className="text-center text-gray-900 mb-1 text-sm font-medium">
         Select Currency
       </p>
-      <CurrencySelector styleClasses="mb-6" />
+      <div className="mb-6">
+        <CurrencySelector />
+      </div>
       <p className="text-center text-gray-900 mb-1 text-sm font-medium">
         Select Bank
       </p>
-      <BankSelector styleClasses="" />
+      <BankSelector />
       <hr className="my-6 h-0.5 border-t-0 bg-blue-900/20 opacity-100" />
       <div>
         <div className="relative mt-2 rounded-md shadow-sm">

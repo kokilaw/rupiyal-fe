@@ -10,8 +10,9 @@ import {
   setCurrencies,
   setCurrency,
   setBankCode,
+  setMode,
 } from '@store/globalSlice';
-import { getCountryFlagEmoji } from '@utils/countryUtils';
+import { getCountryFlagEmoji } from '@common/utils/countryUtils';
 
 const getGlobalState = (state) => state.global;
 
@@ -71,6 +72,11 @@ export function* handleBankChangeEvent(action) {
   yield put(setBankCode(bankCode));
 }
 
+export function* handleModeChangeEvent(action) {
+  const { mode } = action.payload;
+  yield put(setMode(mode));
+}
+
 export default function* rootSaga() {
   yield takeEvery(GLOBAL_ACTION_TYPES.FETCH_STARTUP_DATA, fetchStartUpData);
   yield takeEvery(
@@ -80,5 +86,9 @@ export default function* rootSaga() {
   yield takeEvery(
     GLOBAL_ACTION_TYPES.ON_BANK_CHANGE_EVENT,
     handleBankChangeEvent
+  );
+  yield takeEvery(
+    GLOBAL_ACTION_TYPES.ON_MODE_CHANGE_EVENT,
+    handleModeChangeEvent
   );
 }

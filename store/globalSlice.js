@@ -1,9 +1,14 @@
+import {
+  DEFAULT_BANK,
+  DEFAULT_CURRENCY,
+  DEFAULT_CURRENCY_MODE,
+} from '@common/constants';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  selectedCurrency: 'USD',
-  selectedBankCode: 'BOC',
-  selectedMode: 'BUY',
+  selectedCurrency: DEFAULT_CURRENCY,
+  selectedBankCode: DEFAULT_BANK,
+  selectedMode: DEFAULT_CURRENCY_MODE,
   allRates: [],
   selectedRates: [],
   currencies: {},
@@ -21,7 +26,7 @@ const globalSlice = createSlice({
       state.selectedBankCode = action.payload;
     },
     setMode: (state, action) => {
-      state.mode = action.payload;
+      state.selectedMode = action.payload;
     },
     setSelectedRates: (state, action) => {
       state.selectedRates = action.payload;
@@ -35,7 +40,7 @@ const globalSlice = createSlice({
     setCurrencies: (state, action) => {
       state.currencies = action.payload;
     },
-  }
+  },
 });
 
 export const {
