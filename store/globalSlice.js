@@ -18,7 +18,7 @@ const globalSlice = createSlice({
       state.selectedCurrency = action.payload;
     },
     setBankCode: (state, action) => {
-      state.selectedMode = action.payload;
+      state.selectedBankCode = action.payload;
     },
     setMode: (state, action) => {
       state.mode = action.payload;

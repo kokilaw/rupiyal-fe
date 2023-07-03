@@ -5,7 +5,7 @@ import { values, orderBy, map } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { onCurrencyChangeEventAction } from '@store/actions/globalActions';
-import EmojiIconListbox from './EmojiIconListbox';
+import EmojiIconListbox from './common/EmojiIconListbox';
 
 const CurrencySelector = ({ styleClasses }) => {
   const dispatch = useDispatch();

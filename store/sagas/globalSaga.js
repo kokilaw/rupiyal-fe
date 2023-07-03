@@ -9,6 +9,7 @@ import {
   setSelectedRates,
   setCurrencies,
   setCurrency,
+  setBankCode,
 } from '@store/globalSlice';
 import { getCountryFlagEmoji } from '@utils/countryUtils';
 
@@ -65,10 +66,19 @@ export function* handleCurrencyChangeEvent(action) {
   yield put(setCurrency(currencyCode));
 }
 
+export function* handleBankChangeEvent(action) {
+  const { bankCode } = action.payload;
+  yield put(setBankCode(bankCode));
+}
+
 export default function* rootSaga() {
   yield takeEvery(GLOBAL_ACTION_TYPES.FETCH_STARTUP_DATA, fetchStartUpData);
   yield takeEvery(
     GLOBAL_ACTION_TYPES.ON_CURRENCY_CHANGE_EVENT,
     handleCurrencyChangeEvent
+  );
+  yield takeEvery(
+    GLOBAL_ACTION_TYPES.ON_BANK_CHANGE_EVENT,
+    handleBankChangeEvent
   );
 }
