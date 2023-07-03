@@ -58,7 +58,7 @@ export default function CustomCombobox({
                   key={option.id}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? 'bg-teal-600 text-white' : 'text-gray-900'
+                      active ? 'bg-indigo-600 text-white' : 'text-gray-900'
                     }`
                   }
                   value={option}
@@ -75,7 +75,7 @@ export default function CustomCombobox({
                       {selected ? (
                         <span
                           className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                            active ? 'text-white' : 'text-teal-600'
+                            active ? 'text-white' : 'text-indigo-600'
                           }`}
                         >
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
