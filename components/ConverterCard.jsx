@@ -23,11 +23,11 @@ export default function ConverterCard({ styles }) {
       <p className="text-center text-gray-900 mb-1 text-sm font-medium">
         Select Currency
       </p>
-      <CurrencySelector styles="mb-6" />
+      <CurrencySelector styleClasses="mb-6" />
       <p className="text-center text-gray-900 mb-1 text-sm font-medium">
         Select Bank
       </p>
-      <BankSelector />
+      <BankSelector styleClasses="" />
       <hr className="my-6 h-0.5 border-t-0 bg-blue-900/20 opacity-100" />
       <div>
         <div className="relative mt-2 rounded-md shadow-sm">

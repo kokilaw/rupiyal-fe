@@ -8,8 +8,9 @@ import {
   setAllRates,
   setSelectedRates,
   setCurrencies,
-  setCurrency
+  setCurrency,
 } from '@store/globalSlice';
+import { getCountryFlagEmoji } from '@utils/countryUtils';
 
 const getGlobalState = (state) => state.global;
 
@@ -18,12 +19,16 @@ const getCurrencyData = (ratesMap) => {
   const currencyCodes = keys(ratesMap);
   const currencyData = {};
   currencyCodes.forEach((currencyCode) => {
+    const countryCode = currencyCode.slice(0, -1);
     currencyData[currencyCode] = {
+      currencyCode,
       extendedDisplayName: `${currencyCode} - ${currencyNames.of(
         currencyCode
       )}`,
       displayName: currencyNames.of(currencyCode),
       symbol: getSymbolFromCurrency(currencyCode),
+      countryCode,
+      countryFlagEmoji: getCountryFlagEmoji(countryCode),
     };
   });
   return currencyData;
@@ -56,11 +61,14 @@ export function* fetchStartUpData(action) {
 }
 
 export function* handleCurrencyChangeEvent(action) {
-    const { currencyCode } = action.payload;
-    yield put(setCurrency(currencyCode));
+  const { currencyCode } = action.payload;
+  yield put(setCurrency(currencyCode));
 }
 
 export default function* rootSaga() {
   yield takeEvery(GLOBAL_ACTION_TYPES.FETCH_STARTUP_DATA, fetchStartUpData);
-  yield takeEvery(GLOBAL_ACTION_TYPES.ON_CURRENCY_CHANGE_EVENT, handleCurrencyChangeEvent);
+  yield takeEvery(
+    GLOBAL_ACTION_TYPES.ON_CURRENCY_CHANGE_EVENT,
+    handleCurrencyChangeEvent
+  );
 }

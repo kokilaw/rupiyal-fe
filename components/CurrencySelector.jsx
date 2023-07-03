@@ -1,117 +1,41 @@
 'use client';
 
-import { keys, values } from 'lodash';
-
-import { Fragment, useState, useEffect } from 'react';
-import { Combobox, Transition } from '@headlessui/react';
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import { values, orderBy, map } from 'lodash';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { onCurrencyChangeEventAction } from '@store/actions/globalActions';
+import EmojiIconListbox from './EmojiIconListbox';
 
-const CurrencySelector = ({ styles }) => {
+const CurrencySelector = ({ styleClasses }) => {
   const dispatch = useDispatch();
   const { selectedCurrency, currencies } = useSelector((state) => state.global);
 
-  const sortedCurrencyKeys = keys(currencies).sort();
-  const currencyOptions = sortedCurrencyKeys.map((currencyKey) => {
-    return {
-      id: currencyKey,
-      name: `${currencies[currencyKey].displayName} (${currencies[currencyKey].symbol})`,
-    };
-  });
+  const currencyOptions = values(currencies).map((entry) => ({
+    id: entry.currencyCode,
+    displayText: entry.extendedDisplayName,
+    emoji: entry.countryFlagEmoji,
+    emojiLabel: entry.countryCode,
+  }));
+  const sortedCurrencyOptions = orderBy(
+    currencyOptions,
+    ['displayText'],
+    ['asc']
+  );
 
-  const selected = currencyOptions.filter(
+  const selectedOption = currencyOptions.filter(
     (currencyOption) => currencyOption.id === selectedCurrency
   )[0];
-  const [query, setQuery] = useState('');
-
-  const filteredCurrencyOptions =
-    query === ''
-      ? currencyOptions
-      : currencyOptions.filter((currency) =>
-          currency.name
-            .toLowerCase()
-            .replace(/\s+/g, '')
-            .includes(query.toLowerCase().replace(/\s+/g, ''))
-        );
 
   return (
-    <div className={`${styles}`}>
-      <Combobox
-        value={selected}
-        onChange={(value) =>
-          dispatch(onCurrencyChangeEventAction({ currencyCode: value.id }))
+    <div className={`${styleClasses}`}>
+      <EmojiIconListbox
+        options={sortedCurrencyOptions}
+        selectedOption={selectedOption}
+        onSelect={(option) =>
+          dispatch(onCurrencyChangeEventAction({ currencyCode: option.id }))
         }
-      >
-        <div className="relative">
-          <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
-            <Combobox.Input
-              className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0 focus:outline-0"
-              displayValue={(person) => person.name}
-              onChange={(event) => setQuery(event.target.value)}
-            />
-            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-              <ChevronUpDownIcon
-                className="h-5 w-5 text-gray-400"
-                aria-hidden="true"
-              />
-            </Combobox.Button>
-          </div>
-          <Transition
-            as={Fragment}
-            enter="transition duration-100 ease-out"
-            enterFrom="transform scale-95 opacity-0"
-            enterTo="transform scale-100 opacity-100"
-            leave="transition duration-75 ease-out"
-            leaveFrom="transform scale-100 opacity-100"
-            leaveTo="transform scale-95 opacity-0"
-            afterLeave={() => setQuery('')}
-          >
-            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50">
-              {filteredCurrencyOptions.length === 0 && query !== '' ? (
-                <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-                  Nothing found.
-                </div>
-              ) : (
-                filteredCurrencyOptions.map((currencyOption) => (
-                  <Combobox.Option
-                    key={currencyOption.id}
-                    className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-blue-400 text-white' : 'text-gray-900'
-                      }`
-                    }
-                    value={currencyOption}
-                  >
-                    {({ selected, active }) => (
-                      <>
-                        <span
-                          className={`block truncate ${
-                            selected ? 'font-medium' : 'font-normal'
-                          }`}
-                        >
-                          {currencyOption.name}
-                        </span>
-                        {selected ? (
-                          <span
-                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                              active ? 'text-white' : 'text-teal-600'
-                            }`}
-                          >
-                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                          </span>
-                        ) : null}
-                      </>
-                    )}
-                  </Combobox.Option>
-                ))
-              )}
-            </Combobox.Options>
-          </Transition>
-        </div>
-      </Combobox>
+      />
     </div>
   );
 };
