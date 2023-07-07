@@ -1,45 +1,24 @@
-import SSRBankRatesTable from '@components/SSRBankRatesTable';
-import ConverterCard from '@components/ConverterCard';
-import Providers from '@components/Provider';
-import PreLoader from '@components/PreLoader';
-
-import { store } from '@store';
-import { fetchStartUpDataAction } from '@store/actions/globalActions';
-
-const Home = async () => {
-  const bankDetailsReq = await fetch(
-    'https://mocki.io/v1/a098da89-d72d-40f8-adee-d59c9be911ef'
-  );
-  const bankDetailsData = await bankDetailsReq.json();
-
-  const allRatesDataReq = await fetch(
-    'https://mocki.io/v1/483e7b0f-62a3-40ca-90a0-a75d3457c0b6'
-  );
-  const allRatesData = await allRatesDataReq.json();
-
-  store.dispatch(fetchStartUpDataAction({ bankDetailsData, allRatesData }));
-
-  return (
-    <div>
-      <div className="relative isolate lg:px-8">
-        <div className="mx-auto max-w-fit py-8 md:py-16 lg:py-56">
-          <div className={`grid grid-cols-5 gap-4`}>
-            <PreLoader allRatesData={allRatesData} bankDetailsData={bankDetailsData} />
-            <Providers>
-              <div className="col-span-5 lg:col-span-2">
-                <ConverterCard />
-              </div>
-              <div className="col-span-5 lg:col-span-3">
-                <div className="overflow-auto rounded-lg border border-gray-200 shadow-md">
-                  <SSRBankRatesTable />
-                </div>
-              </div>
-            </Providers>
-          </div>
+const Home = () => (
+  <div className="flex h-screen">
+    <div className="m-auto">
+      <section className="w-full flex-center flex-col">
+        <h1 className="head_text text-center">
+          Compare & Calculate
+          <br className="max-md:hidden" />
+          <span className="orange_gradient text-center"> lkr.exchange </span>
+        </h1>
+        <p className="desc text-center">
+          Explore near real-time exchange rates from top banks in Sri Lanka,
+          effortlessly compare their offerings, and unleash the power of our
+          intuitive currency converter for seamless calculations, all on
+          lkr.exchange!
+        </p>
+        <div class="relative rounded-full px-3 py-1 mt-5 text-lg leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+          Coming Soon
         </div>
-      </div>
+      </section>
     </div>
-  );
-};
+  </div>
+);
 
 export default Home;
