@@ -51,7 +51,7 @@ export default function BankRatesTable({
               <div className="relative h-10 w-10">
                 <img
                   className="h-full w-full rounded-full object-cover object-center"
-                  src={bankDetails[entry.bankCode].logos.thumbnailUrl}
+                  src={bankDetails[entry.bankCode].logo.defaultUrl}
                   alt=""
                 />
               </div>

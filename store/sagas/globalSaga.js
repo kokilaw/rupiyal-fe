@@ -42,7 +42,8 @@ const getCurrencyData = (ratesMap) => {
 
 export function* fetchStartUpData(action) {
   try {
-    const { bankDetailsData, allRatesData } = action.payload;
+    const { allRatesData } = action.payload;
+    const { banks: bankDetailsData } = allRatesData;
     const { selectedMode, selectedCurrency } = yield select(getGlobalState);
 
     const bankDetailsMap = {};
