@@ -15,20 +15,20 @@ export default function ConverterCard({ styles }) {
     (state) => state.global
   );
   return (
-    <div className="rounded-lg border border-gray-200 shadow-md px-6 py-4 bg-white bg-opacity-40 backdrop-blur-sm">
-      <p className="text-center text-gray-900 mb-1 text-sm font-medium">
+    <div className="rounded-lg border border-gray-200 bg-white bg-opacity-40 px-6 py-4 shadow-md backdrop-blur-sm">
+      <p className="mb-1 text-center text-sm font-medium text-gray-900">
         I Want To
       </p>
       <div className="mb-6">
         <MyTabs />
       </div>
-      <p className="text-center text-gray-900 mb-1 text-sm font-medium">
+      <p className="mb-1 text-center text-sm font-medium text-gray-900">
         Select Currency
       </p>
       <div className="mb-6">
         <CurrencySelector />
       </div>
-      <p className="text-center text-gray-900 mb-1 text-sm font-medium">
+      <p className="mb-1 text-center text-sm font-medium text-gray-900">
         Select Bank
       </p>
       <BankSelector />
@@ -44,12 +44,12 @@ export default function ConverterCard({ styles }) {
             type="text"
             name="price"
             id="price"
-            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 text-end"
+            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-end text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
             placeholder="0.00"
           />
         </div>
       </div>
-      <div className="flex justify-center items-center m-2">
+      <div className="m-2 flex items-center justify-center">
         <button>
           <ArrowsUpDownIcon
             className="h-5 w-5 text-gray-400 hover:text-gray-800"
@@ -67,7 +67,7 @@ export default function ConverterCard({ styles }) {
             name="price"
             id="price"
             disabled={true}
-            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6 text-end"
+            className="block w-full rounded-md border-0 py-1.5 pl-7 pr-2 text-end text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-400 sm:text-sm sm:leading-6"
             placeholder="0.00"
           />
         </div>

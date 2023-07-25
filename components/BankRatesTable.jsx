@@ -45,7 +45,7 @@ export default function BankRatesTable({
         {(rates || []).map((entry, index) => (
           <tr
             key={index}
-            className="hover:bg-gray-50 bg-white bg-opacity-60 backdrop-blur-sm"
+            className="bg-white bg-opacity-60 backdrop-blur-sm hover:bg-gray-50"
           >
             <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
               <div className="relative h-10 w-10">

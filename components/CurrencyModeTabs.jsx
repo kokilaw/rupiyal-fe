@@ -39,7 +39,7 @@ export default function CurrencyModeTabs() {
           <Tab
             className={({ selected }) =>
               classNames(
-                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black-700',
+                'text-black-700 w-full rounded-lg py-2.5 text-sm font-medium leading-5',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none ',
                 selected
                   ? 'bg-white shadow'

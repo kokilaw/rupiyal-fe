@@ -33,8 +33,11 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function EmojiIconListbox({ options, selectedOption: selected, onSelect }) {
-
+export default function EmojiIconListbox({
+  options,
+  selectedOption: selected,
+  onSelect,
+}) {
   return (
     <Listbox value={selected} onChange={onSelect}>
       {({ open }) => (

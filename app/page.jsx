@@ -17,7 +17,7 @@ const Home = async () => {
   return (
     <div>
       <div className="relative isolate lg:px-8">
-        <div className="mx-auto max-w-fit py-8 md:py-16 lg:py-56">
+        <div className="mx-auto max-w-fit py-8 md:py-16 lg:py-50">
           <div className={`grid grid-cols-5 gap-4`}>
             <PreLoader allRatesData={allRatesData} />
             <Providers>
