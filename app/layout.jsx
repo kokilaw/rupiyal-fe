@@ -1,8 +1,8 @@
 import '@styles/globals.css';
 
 export const metadata = {
-  title: 'rupiyal.lk',
-  description: 'Calculate currency and foreign exchange rates related to Sri Lankan Rupee (LKR) with the free rupiyal.lk Currency Converter. Compare the rates between Sri Lankan banks and other financial institutes.',
+  title: 'LKR.exchange',
+  description: 'Calculate currency and foreign exchange rates related to Sri Lankan Rupee (LKR) with the free LKR.exchange Currency Converter. Compare the rates between Sri Lankan banks and other financial institutes.',
 };
 
 const RootLayout = ({ children }) => (

@@ -42,9 +42,10 @@ const getCurrencyData = (ratesMap) => {
 
 export function* fetchStartUpData(action) {
   try {
-    const { allRatesData } = action.payload;
+    const { allRatesData, selectedCurrencyCode } = action.payload;
+    yield put(setCurrency(selectedCurrencyCode));
     const { banks: bankDetailsData } = allRatesData;
-    const { selectedMode, selectedCurrency } = yield select(getGlobalState);
+    const { selectedMode } = yield select(getGlobalState);
 
     const bankDetailsMap = {};
     bankDetailsData.forEach((bank) => {
@@ -55,10 +56,10 @@ export function* fetchStartUpData(action) {
     yield put(setAllRates(allRatesData));
 
     if (CURRENCY_MODE.BUY === selectedMode) {
-      yield put(setSelectedRates(allRatesData.buyingRates[selectedCurrency]));
+      yield put(setSelectedRates(allRatesData.buyingRates[selectedCurrencyCode]));
       yield put(setCurrencies(getCurrencyData(allRatesData.buyingRates)));
     } else {
-      yield put(setSelectedRates(allRatesData.sellingRates[selectedCurrency]));
+      yield put(setSelectedRates(allRatesData.sellingRates[selectedCurrencyCode]));
       yield put(setCurrencies(getCurrencyData(allRatesData.sellingRates)));
     }
   } catch (e) {

@@ -45,9 +45,9 @@ export default function BankRatesTable({
         {(rates || []).map((entry, index) => (
           <tr
             key={index}
-            className="bg-white bg-opacity-60 backdrop-blur-sm hover:bg-gray-50"
+            className="bg-white bg-opacity-60 backdrop-blur-sm hover:bg-gray-50 border-solid border-3 border-indigo-600"
           >
-            <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
+            <td className="flex gap-3 px-6 py-4 font-normal text-gray-900">
               <div className="relative h-10 w-10">
                 <img
                   className="h-full w-full rounded-full object-cover object-center"
@@ -63,7 +63,7 @@ export default function BankRatesTable({
                   {bankDetails[entry.bankCode].longName}
                 </div>
               </div>
-            </th>
+            </td>
             <td className="px-6 py-4">
               {currency(entry.rate, { pattern: `#` }).format()}
             </td>
