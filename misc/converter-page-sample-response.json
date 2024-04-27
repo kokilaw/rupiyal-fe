@@ -1,0 +1,106 @@
+{
+  "rateForSelection": 209.07,
+  "selectedMode": "BUYING",
+  "selectedBankCode": "BOC",
+  "lastUpdated": "2024-04-13T16:30:04.268Z",
+  // Average data considering all banks
+  "dailyAverageData": {
+    "rate": 208.29,
+    "changeInAmount": 0.9,
+    "changeInPercentage": 0.21
+  },
+  "bankData": {
+    "BOC": {
+      "bankCode": "BOC",
+      "shortName": "BOC",
+      "longName": "Bank of Ceylon",
+      "logoUrl": {
+        "default": "https://assets.lkr.exchange/images/logos/sampath-logo-min.png"
+      },
+      "colorCode": "#bdcf32"
+    },
+    "SAMPATH": {
+      "bankCode": "SAMPATH",
+      "shortName": "Sampath",
+      "longName": "Sampath Bank PLC",
+      "logoUrl": {
+        "default": "https://assets.lkr.exchange/images/logos/boc-logo-min.png"
+      },
+      "colorCode": "#ede15b"
+    }
+  },
+  "weeklyData": {
+    "BOC": {
+      "bankCode": "BOC",
+      "lastUpdated": "2024-04-13T16:30:04.268Z",
+      "changeInAmount": 0.9,
+      "currentRate": 208.29,
+      "rates": [
+        {
+          "date": "2024-04-01",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-02",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-03",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-04",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-05",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-06",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-07",
+          "rate": 208.29
+        }
+      ]
+    },
+    "SAMPATH": {
+      "bankCode": "SAMPATH",
+      "lastUpdated": "2024-04-13T16:30:04.268Z",
+      "changeInAmount": 0.9,
+      "currentRate": 208.29,
+      "rates": [
+        {
+          "date": "2024-04-01",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-02",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-03",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-04",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-05",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-06",
+          "rate": 208.29
+        },
+        {
+          "date": "2024-04-07",
+          "rate": 208.29
+        }
+      ]
+    }
+  }
+}

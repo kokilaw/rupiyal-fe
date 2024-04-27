@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import { Tab } from '@headlessui/react';
 import Convertor from './converter';
@@ -28,6 +30,7 @@ export default function ConverterWrapper() {
         <Tab.List className="flex w-full space-x-1 rounded-xl bg-gray-900/20 p-1 sm:w-1/2">
           {tabs.map((tab) => (
             <Tab
+              key={tab.tabName}
               disabled={tab.disabled}
               className={({ selected }) =>
                 classNames(
