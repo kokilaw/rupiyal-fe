@@ -7,7 +7,7 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'Converter', path: '/currency-converter/buying-rate-inr?bankCode=NTB' },
+  { name: 'Converter', path: '/currency-converter/buying-rate-usd?bankCode=BOC' },
   { name: 'Historical', path: '/historical' },
   { name: 'Banks', path: '/banks' },
   { name: 'Alerting', path: '/alerting' },
