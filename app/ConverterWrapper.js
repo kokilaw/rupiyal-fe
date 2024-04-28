@@ -25,7 +25,7 @@ const tabs = [
   },
 ];
 
-export default function ConverterWrapper({ mode, currencyCode, bankCode }) {
+export default function ConverterWrapper({ mode, currencyCode, bankCode, bankDetails }) {
   const [selectedIndex, setSelectedIndex] = useState(
     MODE_BUYING == mode.toUpperCase() ? 0 : 1,
   );
@@ -62,10 +62,10 @@ export default function ConverterWrapper({ mode, currencyCode, bankCode }) {
 
       <Tab.Panels className="mt-8">
         <Tab.Panel>
-          <Convertor bankCode={bankCode} currencyCode={currencyCode} rate={145.00} />
+          <Convertor mode={mode} bankCode={bankCode} currencyCode={currencyCode} rate={145.00} bankDetails={bankDetails} />
         </Tab.Panel>
         <Tab.Panel>
-        <Convertor bankCode={bankCode} currencyCode={currencyCode} rate={145.00} />
+        <Convertor mode={mode} bankCode={bankCode} currencyCode={currencyCode} rate={145.00} bankDetails={bankDetails} />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

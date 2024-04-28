@@ -1,8 +1,37 @@
 import CurrencySelectListBox from '@/components/CurrencySelectListBox';
 import BankSelectListBox from '@/components/BankSelectListBox';
 import { ArrowsRightLeftIcon } from '@heroicons/react/20/solid';
+import _ from 'lodash';
+import { navigate } from './actions';
+import { getUpdatedPath } from '@/utils/PathUtils';
 
-export default function Convertor() {
+const getBankDropDownListData = (bankDetails) => {
+  const data = _.keys(bankDetails).map((entry) => {
+    return {
+      id: bankDetails[entry].bankCode,
+      name: `${bankDetails[entry].longName} - ${bankDetails[entry].shortName}`,
+      thumbnail: bankDetails[entry].logo.defaultUrl,
+    };
+  });
+  return data;
+};
+
+export default function Convertor({
+  mode,
+  bankCode,
+  currencyCode,
+  rate,
+  bankDetails,
+}) {
+  const onBankChange = (newBank) => {
+    navigate(getUpdatedPath(mode, currencyCode, newBank.id))
+  };
+  const bankDropDownData = getBankDropDownListData(bankDetails);
+  const selectedBankData = _.filter(
+    bankDropDownData,
+    (entry) => entry.id == bankCode,
+  )[0];
+
   return (
     <div className="relative w-full rounded-lg ring-1 ring-slate-200">
       <div className="rounded-lg bg-white p-4 transition-all dark:bg-gray-950 sm:p-10">
@@ -53,7 +82,10 @@ export default function Convertor() {
                   className="block w-full rounded-md border-0 py-1.5 text-lg leading-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 />
                 <div className="absolute inset-y-0 right-0">
-                  <CurrencySelectListBox disabled={true} selectedCurrencyIndex={4} />
+                  <CurrencySelectListBox
+                    disabled={true}
+                    selectedCurrencyIndex={4}
+                  />
                 </div>
               </div>
             </div>
@@ -71,7 +103,12 @@ export default function Convertor() {
             <div className="sm:col-span-11">
               <div className="flex flex-grow flex-row place-content-center px-4 sm:px-0">
                 <div className="w-full sm:w-1/2">
-                  <BankSelectListBox />
+                  <BankSelectListBox
+                    bankDropDownData={bankDropDownData}
+                    selectedBankCode={bankCode}
+                    selectedBankData={selectedBankData}
+                    onBankChangeEvent={(bankCode) => onBankChange(bankCode)}
+                  />
                 </div>
               </div>
             </div>

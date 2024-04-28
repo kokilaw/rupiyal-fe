@@ -7,7 +7,7 @@ import {
   DEFAULT_CURRENCY,
   DEFAULT_MODE,
 } from '@/utils/Constants';
-import response from '@/misc/converter-page-sample-response.json'
+import response from '@/misc/converter-page-sample-response.json';
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const { path } = params;
@@ -47,11 +47,16 @@ export default function CurrenctConverterPage({ params = {}, searchParams }) {
             mode={mode || DEFAULT_MODE}
             currencyCode={currency || DEFAULT_CURRENCY}
             bankCode={bankCode || DEFAULT_BANK}
+            bankDetails={response.bankDetailsMap}
           />
         </div>
         <div className="relative mt-8 w-full rounded-lg ring-1 ring-slate-200">
           <div className="rounded-lg bg-white p-4 transition-all dark:bg-gray-950 sm:p-10">
-            <Charts ratesSummary={response.ratesSummary} ratesMap={response.ratesMap} bankDetails={response.bankDetailsMap} />
+            <Charts
+              ratesSummary={response.ratesSummary}
+              ratesMap={response.ratesMap}
+              bankDetails={response.bankDetailsMap}
+            />
           </div>
         </div>
       </div>
