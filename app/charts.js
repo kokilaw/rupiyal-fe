@@ -8,109 +8,72 @@ import {
   TableHead,
   TableHeaderCell,
   TableRow,
-} from "@tremor/react";
+} from '@tremor/react';
+import _ from 'lodash';
+import moment from 'moment/moment';
+import bankCodeColorMapping from '@/misc/bank-code-color-mapping.json'
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
-const data = [
-  {
-    date: "Apr 08",
-    "Bank of Ceylon": 202.82,
-    "Nations Trust Bank (NTB)": 204.95,
-    "National Savings Bank": 203.58,
-    "Hatton National Bank": 201.24,
-    "Union Bank": 202.69,
-    "Sampath Bank": 203,
-  },
-  {
-    date: "Apr 09",
-    "Bank of Ceylon": 200.86,
-    "Nations Trust Bank (NTB)": 203.66,
-    "National Savings Bank": 203.95,
-    "Hatton National Bank": 201.28,
-    "Union Bank": 202.67,
-    "Sampath Bank": 204.52,
-  },
-  {
-    date: "Apr 10",
-    "Bank of Ceylon": 202.63,
-    "Nations Trust Bank (NTB)": 202.02,
-    "National Savings Bank": 203.3,
-    "Hatton National Bank": 202.72,
-    "Union Bank": 200.14,
-    "Sampath Bank": 202.81,
-  },
-  {
-    date: "Apr 11",
-    "Bank of Ceylon": 200.76,
-    "Nations Trust Bank (NTB)": 201.09,
-    "National Savings Bank": 203.15,
-    "Hatton National Bank": 201.44,
-    "Union Bank": 203.76,
-    "Sampath Bank": 200.49,
-  },
-  {
-    date: "Apr 12",
-    "Bank of Ceylon": 200.43,
-    "Nations Trust Bank (NTB)": 204.92,
-    "National Savings Bank": 204.59,
-    "Hatton National Bank": 202.63,
-    "Union Bank": 201.39,
-    "Sampath Bank": 201.34,
-  },
-  {
-    date: "Apr 13",
-    "Bank of Ceylon": 203.95,
-    "Nations Trust Bank (NTB)": 201.8,
-    "National Savings Bank": 203.54,
-    "Hatton National Bank": 204.57,
-    "Union Bank": 204.13,
-    "Sampath Bank": 204.65,
-  },
-  {
-    date: "Apr 14",
-    "Bank of Ceylon": 203.19,
-    "Nations Trust Bank (NTB)": 202.32,
-    "National Savings Bank": 201.61,
-    "Hatton National Bank": 203,
-    "Union Bank": 202.68,
-    "Sampath Bank": 205,
-  },
-];
+const getFormattedChangeValue = (change) => {
+  if (change > 0) {
+    return `+${Number(change).toFixed(2)}`
+  } else if (change < 0) {
+    return `-${Number(change).toFixed(2)}`
+  } else {
+    return `${Number(change).toFixed(0)}`
+  }
+}
 
-const summary = [
-  {
-    name: "Bank of Ceylon",
-    rate: "Rs. 292.29",
-    change: "+1.40",
-    lastUpdate: "15 minutes ago",
-    bgColor: "bg-blue-500",
-    changeType: "positive",
-  },
-  {
-    name: "Nations Trust Bank (NTB)",
-    rate: "Rs. 293.29",
-    change: "+2.40",
-    lastUpdate: "1 hour ago",
-    bgColor: "bg-violet-500",
-    changeType: "positive",
-  },
-  {
-    name: "National Savings Bank",
-    rate: "Rs. 291.29",
-    change: "-1.40",
-    lastUpdate: "20 minutes ago",
-    bgColor: "bg-fuchsia-500",
-    changeType: "negative",
-  },
-];
+const getChartCategories = (bankDetails) => {
+  return _.keys(bankDetails).map(entry => bankDetails[entry].longName);
+}
+
+const getChartLegenColors = (bankDetails) => {
+  return _.keys(bankDetails).map(entry => bankDetails[entry].themeConfig.accentColor);
+}
+
+const getChartData = (ratesMap, bankDetails) => {
+  const chartData=[]
+  _.keys(ratesMap).forEach(date => {
+    const ratesForDate = ratesMap[date];
+    const data = {};
+    data['date'] = moment(date).format("MMM Do");
+    ratesForDate.forEach(entry => {
+      data[bankDetails[entry.bankCode].longName] = entry.rate;
+    })
+    chartData.push(data);
+  });
+  return chartData;
+}
+
+const getFormattedSummaryValues = (ratesSummary, bankDetails) => {
+  const formattedData = ratesSummary.map(rateEntry => {
+    const humanizedLastUpdatedTime  = moment(rateEntry.lastUpdated).fromNow();
+    return {
+      name: bankDetails[rateEntry.bankCode].longName,
+      rate: valueFormatter(rateEntry.rate),
+      change: getFormattedChangeValue(rateEntry.change),
+      lastUpdate: humanizedLastUpdatedTime,
+      bgColor: `bg-${bankCodeColorMapping[rateEntry.bankCode]}-500`,
+      changeType: rateEntry.isPositive ? 'positive' : 'negative'
+    }
+  });
+  return _.sortBy(formattedData, entry => entry.rate);
+};
 
 const valueFormatter = (number) =>
-  `Rs. ${Intl.NumberFormat("us").format(number).toString()}`;
+  `Rs. ${Number(number).toFixed(2)}`;
 
-export default function Charts() {
+export default function Charts({ ratesSummary, ratesMap, bankDetails }) {
+  const formattedSummaryValues = getFormattedSummaryValues(
+    ratesSummary,
+    bankDetails,
+  );
+  const chartCategories = getChartCategories(bankDetails);
+  const chartDate = getChartData(ratesMap, bankDetails);
   return (
     <>
       <h3 className="text-tremor-default text-tremor-content dark:text-dark-tremor-content">
@@ -122,23 +85,16 @@ export default function Charts() {
       <p className="mt-1 text-tremor-default font-medium">
         <span className="text-emerald-700 dark:text-emerald-500">
           +Rs. 0.90 (0.21%)
-        </span>{" "}
+        </span>{' '}
         <span className="font-normal text-tremor-content dark:text-dark-tremor-content">
           Past 24 hours
         </span>
       </p>
       <LineChart
-        data={data}
+        data={chartDate}
         index="date"
-        categories={[
-          "Bank of Ceylon",
-          "Nations Trust Bank (NTB)",
-          "National Savings Bank",
-          "Hatton National Bank",
-          "Union Bank",
-          "Sampath Bank",
-        ]}
-        colors={["blue", "violet", "fuchsia", "blue", "violet", "fuchsia"]}
+        categories={chartCategories}
+        colors={_.values(bankCodeColorMapping)}
         valueFormatter={valueFormatter}
         yAxisWidth={60}
         onValueChange={() => {}}
@@ -165,7 +121,7 @@ export default function Charts() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {summary.map((item) => (
+          {formattedSummaryValues.map((item) => (
             <TableRow key={item.name}>
               <TableCell className="font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
                 <div className="flex space-x-3">
@@ -180,9 +136,9 @@ export default function Charts() {
               <TableCell className="text-right">
                 <span
                   className={classNames(
-                    item.changeType === "positive"
-                      ? "text-emerald-700 dark:text-emerald-500"
-                      : "text-red-700 dark:text-red-500"
+                    item.changeType === 'positive'
+                      ? 'text-emerald-700 dark:text-emerald-500'
+                      : 'text-red-700 dark:text-red-500',
                   )}
                 >
                   {item.change}

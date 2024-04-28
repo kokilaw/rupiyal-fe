@@ -1,8 +1,12 @@
-"use client"
+'use client';
 
 import { useState } from 'react';
 import { Tab } from '@headlessui/react';
 import Convertor from './converter';
+import { MODE_BUYING, MODE_SELLING } from '@/utils/Constants';
+import { getUpdatedPath } from '@/utils/PathUtils';
+import { redirect } from 'next/navigation'
+import { navigate } from './actions';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -21,11 +25,19 @@ const tabs = [
   },
 ];
 
-export default function ConverterWrapper() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+export default function ConverterWrapper({ mode, currencyCode, bankCode }) {
+  const [selectedIndex, setSelectedIndex] = useState(
+    MODE_BUYING == mode.toUpperCase() ? 0 : 1,
+  );
+
+  const onTabChange = (index) => {
+    const newMode = index == 0 ? MODE_BUYING : MODE_SELLING; 
+    const updatedPath = getUpdatedPath(newMode, currencyCode, bankCode);
+    navigate(updatedPath);
+  }
 
   return (
-    <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
+    <Tab.Group selectedIndex={selectedIndex} onChange={onTabChange}>
       <div className="flex flex-grow flex-row place-content-center">
         <Tab.List className="flex w-full space-x-1 rounded-xl bg-gray-900/20 p-1 sm:w-1/2">
           {tabs.map((tab) => (
@@ -50,12 +62,11 @@ export default function ConverterWrapper() {
 
       <Tab.Panels className="mt-8">
         <Tab.Panel>
-          <Convertor />
+          <Convertor bankCode={bankCode} currencyCode={currencyCode} rate={145.00} />
         </Tab.Panel>
         <Tab.Panel>
-          <Convertor />
+        <Convertor bankCode={bankCode} currencyCode={currencyCode} rate={145.00} />
         </Tab.Panel>
-        <Tab.Panel>Content 3</Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
   );

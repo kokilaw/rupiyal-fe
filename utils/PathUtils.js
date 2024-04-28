@@ -7,3 +7,7 @@ export function extractPathData(path) {
     currency: datas[2].toUpperCase(),
   };
 }
+
+export function getUpdatedPath(mode, currencyCode, bankCode) {
+  return `/${mode.toLowerCase()}-rate-${currencyCode.toLowerCase()}?bankCode=${bankCode}`
+}

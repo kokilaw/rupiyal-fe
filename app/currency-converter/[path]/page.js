@@ -2,11 +2,17 @@ import ConverterWrapper from '@/app/ConverterWrapper';
 import Charts from '@/app/charts';
 import { extractPathData } from '@/utils/PathUtils';
 import { getCurrencyName } from '@/utils/CurrencyUtils';
+import {
+  DEFAULT_BANK,
+  DEFAULT_CURRENCY,
+  DEFAULT_MODE,
+} from '@/utils/Constants';
+import response from '@/misc/converter-page-sample-response.json'
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const { path } = params;
   const { mode, currency } = extractPathData(path);
-  const currencyName  = getCurrencyName(currency);
+  const currencyName = getCurrencyName(currency);
   const localCurrencyName = getCurrencyName('LKR');
 
   return {
@@ -16,6 +22,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export default function CurrenctConverterPage({ params = {}, searchParams }) {
+  const { path } = params;
+  const { bankCode } = searchParams;
+  const { mode, currency } = extractPathData(path);
   return (
     <div className="relative isolate px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-32 sm:py-32 lg:py-40">
@@ -34,11 +43,15 @@ export default function CurrenctConverterPage({ params = {}, searchParams }) {
           </div>
         </div>
         <div className="mt-8 w-full">
-          <ConverterWrapper />
+          <ConverterWrapper
+            mode={mode || DEFAULT_MODE}
+            currencyCode={currency || DEFAULT_CURRENCY}
+            bankCode={bankCode || DEFAULT_BANK}
+          />
         </div>
         <div className="relative mt-8 w-full rounded-lg ring-1 ring-slate-200">
           <div className="rounded-lg bg-white p-4 transition-all dark:bg-gray-950 sm:p-10">
-            <Charts />
+            <Charts ratesSummary={response.ratesSummary} ratesMap={response.ratesMap} bankDetails={response.bankDetailsMap} />
           </div>
         </div>
       </div>
