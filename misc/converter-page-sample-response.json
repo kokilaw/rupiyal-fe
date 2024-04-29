@@ -1,642 +1,628 @@
 {
-  "ratesSummary": [
-    {
-      "bankCode": "STANCHART",
-      "rate": "303.0000",
-      "lastUpdated": "2024-04-28T11:07:11.017568Z",
-      "change": 0,
-      "isPositive": true
+    "latestRateForBank": {
+        "bankCode": "NTB",
+        "rate": "185.4800",
+        "date": "2024-04-29",
+        "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
     },
-    {
-      "bankCode": "SEYLAN",
-      "rate": "300.5000",
-      "lastUpdated": "2024-04-28T11:07:16.134019Z",
-      "change": 0,
-      "isPositive": true
+    "ratesSummary": [
+        {
+            "bankCode": "STANCHART",
+            "rate": "188.7200",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.0800000000000125,
+            "isPositive": true
+        },
+        {
+            "bankCode": "SEYLAN",
+            "rate": "188.4383",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 0.8172999999999888,
+            "isPositive": true
+        },
+        {
+            "bankCode": "PEOPLES",
+            "rate": "190.9387",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.4429000000000087,
+            "isPositive": true
+        },
+        {
+            "bankCode": "NDB",
+            "rate": "189.0600",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.1500000000000057,
+            "isPositive": true
+        },
+        {
+            "bankCode": "HSBC",
+            "rate": "190.7900",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.2399999999999807,
+            "isPositive": true
+        },
+        {
+            "bankCode": "COMBANK",
+            "rate": "189.0600",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.8600000000000136,
+            "isPositive": true
+        },
+        {
+            "bankCode": "SAMPATH",
+            "rate": "197.5642",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 0,
+            "isPositive": true
+        },
+        {
+            "bankCode": "BOC",
+            "rate": "191.3378",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.4312999999999931,
+            "isPositive": true
+        },
+        {
+            "bankCode": "NSB",
+            "rate": "190.1000",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.5199999999999818,
+            "isPositive": true
+        },
+        {
+            "bankCode": "UNION",
+            "rate": "190.2000",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.1899999999999977,
+            "isPositive": true
+        },
+        {
+            "bankCode": "NTB",
+            "rate": "185.4800",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.6499999999999773,
+            "isPositive": true
+        },
+        {
+            "bankCode": "HNB",
+            "rate": "186.8380",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 1.2094999999999914,
+            "isPositive": true
+        },
+        {
+            "bankCode": "DFCC",
+            "rate": "188.1700",
+            "lastUpdated": "2024-04-29T21:33:16.275706+05:30",
+            "change": 2.25,
+            "isPositive": true
+        }
+    ],
+    "ratesMap": {
+        "2024-04-24": [
+            {
+                "bankCode": "STANCHART",
+                "rate": "190.0700",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "SEYLAN",
+                "rate": "189.4951",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "PEOPLES",
+                "rate": "189.8790",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "NDB",
+                "rate": "189.8000",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "HSBC",
+                "rate": "191.3900",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "COMBANK",
+                "rate": "188.7700",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "SAMPATH",
+                "rate": "197.5642",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "BOC",
+                "rate": "192.2349",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "NSB",
+                "rate": "189.7000",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "UNION",
+                "rate": "190.8700",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "NTB",
+                "rate": "185.7900",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "HNB",
+                "rate": "188.6200",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            },
+            {
+                "bankCode": "DFCC",
+                "rate": "187.3100",
+                "date": "2024-04-24",
+                "lastUpdated": "2024-04-24T01:41:32.366775+05:30"
+            }
+        ],
+        "2024-04-26": [
+            {
+                "bankCode": "STANCHART",
+                "rate": "187.6400",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "SEYLAN",
+                "rate": "187.6210",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "PEOPLES",
+                "rate": "189.4958",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "NDB",
+                "rate": "187.9100",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "HSBC",
+                "rate": "189.5500",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "COMBANK",
+                "rate": "187.2000",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "SAMPATH",
+                "rate": "197.5642",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "BOC",
+                "rate": "189.9065",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "NSB",
+                "rate": "188.5800",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "UNION",
+                "rate": "189.0100",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "NTB",
+                "rate": "183.8300",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "HNB",
+                "rate": "185.6285",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            },
+            {
+                "bankCode": "DFCC",
+                "rate": "185.6100",
+                "date": "2024-04-26",
+                "lastUpdated": "2024-04-26T01:41:05.641757+05:30"
+            }
+        ],
+        "2024-04-27": [
+            {
+                "bankCode": "STANCHART",
+                "rate": "187.6400",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "SEYLAN",
+                "rate": "187.6210",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "PEOPLES",
+                "rate": "189.4958",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "NDB",
+                "rate": "187.9100",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "HSBC",
+                "rate": "189.5500",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "COMBANK",
+                "rate": "187.2000",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "SAMPATH",
+                "rate": "197.5642",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "BOC",
+                "rate": "189.9065",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "NSB",
+                "rate": "188.5800",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "UNION",
+                "rate": "189.0100",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "NTB",
+                "rate": "183.8300",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "HNB",
+                "rate": "185.6285",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            },
+            {
+                "bankCode": "DFCC",
+                "rate": "185.9200",
+                "date": "2024-04-27",
+                "lastUpdated": "2024-04-27T01:25:40.560069+05:30"
+            }
+        ],
+        "2024-04-28": [
+            {
+                "bankCode": "STANCHART",
+                "rate": "187.6400",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "SEYLAN",
+                "rate": "187.6210",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "PEOPLES",
+                "rate": "189.4958",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "NDB",
+                "rate": "187.9100",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "HSBC",
+                "rate": "189.5500",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "COMBANK",
+                "rate": "187.2000",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "SAMPATH",
+                "rate": "197.5642",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "BOC",
+                "rate": "189.9065",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "NSB",
+                "rate": "188.5800",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "UNION",
+                "rate": "189.0100",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "NTB",
+                "rate": "183.8300",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "HNB",
+                "rate": "185.6285",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            },
+            {
+                "bankCode": "DFCC",
+                "rate": "185.9200",
+                "date": "2024-04-28",
+                "lastUpdated": "2024-04-28T03:26:47.973598+05:30"
+            }
+        ],
+        "2024-04-29": [
+            {
+                "bankCode": "STANCHART",
+                "rate": "188.7200",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "SEYLAN",
+                "rate": "188.4383",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "PEOPLES",
+                "rate": "190.9387",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "NDB",
+                "rate": "189.0600",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "HSBC",
+                "rate": "190.7900",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "COMBANK",
+                "rate": "189.0600",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "SAMPATH",
+                "rate": "197.5642",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "BOC",
+                "rate": "191.3378",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "NSB",
+                "rate": "190.1000",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "UNION",
+                "rate": "190.2000",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "NTB",
+                "rate": "185.4800",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "HNB",
+                "rate": "186.8380",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            },
+            {
+                "bankCode": "DFCC",
+                "rate": "188.1700",
+                "date": "2024-04-29",
+                "lastUpdated": "2024-04-29T21:33:16.275706+05:30"
+            }
+        ]
     },
-    {
-      "bankCode": "PEOPLES",
-      "rate": "298.9603",
-      "lastUpdated": "2024-04-28T11:07:22.16152Z",
-      "change": 0,
-      "isPositive": true
+    "bankDetailsMap": {
+        "NTB": {
+            "bankCode": "NTB",
+            "shortName": "NTB",
+            "longName": "Nations Truest Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/ntb-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "COMBANK": {
+            "bankCode": "COMBANK",
+            "shortName": "COMBANK",
+            "longName": "Commercial Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/combank-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "HNB": {
+            "bankCode": "HNB",
+            "shortName": "HNB",
+            "longName": "Hatton National Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/hnb-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "BOC": {
+            "bankCode": "BOC",
+            "shortName": "BOC",
+            "longName": "Bank Of Ceylon",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/boc-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "SAMPATH": {
+            "bankCode": "SAMPATH",
+            "shortName": "Sampath Bank",
+            "longName": "Sampath Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/sampath-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "SEYLAN": {
+            "bankCode": "SEYLAN",
+            "shortName": "Seylan Bank",
+            "longName": "Seylan Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/seylan-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "NDB": {
+            "bankCode": "NDB",
+            "shortName": "NDB",
+            "longName": "National Development Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/ndb-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "NSB": {
+            "bankCode": "NSB",
+            "shortName": "NSB",
+            "longName": "National Savings Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/nsb-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "DFCC": {
+            "bankCode": "DFCC",
+            "shortName": "DFCC Bank",
+            "longName": "DFCC Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/dfcc-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "PEOPLES": {
+            "bankCode": "PEOPLES",
+            "shortName": "Peoples Bank",
+            "longName": "Peoples Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/peoples-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "UNION": {
+            "bankCode": "UNION",
+            "shortName": "Union Bank",
+            "longName": "Union Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/union-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "HSBC": {
+            "bankCode": "HSBC",
+            "shortName": "HSBC",
+            "longName": "HSBC Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/hsbc-logo-min.png"
+            },
+            "themeConfig": null
+        },
+        "STANCHART": {
+            "bankCode": "STANCHART",
+            "shortName": "STANCHART",
+            "longName": "Standard Chartered Bank",
+            "logo": {
+                "defaultUrl": "https://assets.lkr.exchange/images/logos/stanchart-logo-min.png"
+            },
+            "themeConfig": null
+        }
     },
-    {
-      "bankCode": "NDB",
-      "rate": "300.4000",
-      "lastUpdated": "2024-04-28T11:07:29.39056Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "HSBC",
-      "rate": "302.4900",
-      "lastUpdated": "2024-04-28T11:07:34.50928Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "COMBANK",
-      "rate": "299.5000",
-      "lastUpdated": "2024-04-28T11:07:38.724123Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "SAMPATH",
-      "rate": "310.5000",
-      "lastUpdated": "2024-04-28T11:07:44.442193Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "BOC",
-      "rate": "301.0000",
-      "lastUpdated": "2024-04-28T11:07:49.254059Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "NSB",
-      "rate": "301.5000",
-      "lastUpdated": "2024-04-28T11:07:51.066012Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "UNION",
-      "rate": "301.5000",
-      "lastUpdated": "2024-04-28T11:08:06.405974Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "NTB",
-      "rate": "304.0000",
-      "lastUpdated": "2024-04-28T11:07:56.471786Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "HNB",
-      "rate": "299.0000",
-      "lastUpdated": "2024-04-28T11:08:00.682336Z",
-      "change": 0,
-      "isPositive": true
-    },
-    {
-      "bankCode": "DFCC",
-      "rate": "302.0000",
-      "lastUpdated": "2024-04-28T11:08:03.692117Z",
-      "change": 0,
-      "isPositive": true
+    "allBanksSummary": {
+        "averageRate": 189.74592307692308,
+        "averageChange": 1.2954615384615347,
+        "averagechangePercentage": 0.67810518703559,
+        "isPositive": true
     }
-  ],
-  "ratesMap": {
-    "2024-04-24": [
-      {
-        "bankCode": "STANCHART",
-        "rate": "308.0000",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "SEYLAN",
-        "rate": "303.7500",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "PEOPLES",
-        "rate": "301.1311",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "NDB",
-        "rate": "303.7500",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "HSBC",
-        "rate": "305.8600",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "COMBANK",
-        "rate": "302.0000",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "SAMPATH",
-        "rate": "310.5000",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "BOC",
-        "rate": "304.7500",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "NSB",
-        "rate": "305.7500",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "UNION",
-        "rate": "304.5000",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "NTB",
-        "rate": "307.2000",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "HNB",
-        "rate": "304.0000",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      },
-      {
-        "bankCode": "DFCC",
-        "rate": "305.0000",
-        "date": "2024-04-24",
-        "lastUpdated": "2024-04-24T11:14:02.250297Z"
-      }
-    ],
-    "2024-04-25": [
-      {
-        "bankCode": "STANCHART",
-        "rate": "305.0000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "SEYLAN",
-        "rate": "301.5000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "PEOPLES",
-        "rate": "299.8690",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "NDB",
-        "rate": "301.2500",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "HSBC",
-        "rate": "303.0000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "COMBANK",
-        "rate": "300.5000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "SAMPATH",
-        "rate": "310.5000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "BOC",
-        "rate": "302.2500",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "NSB",
-        "rate": "305.7500",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "UNION",
-        "rate": "303.5000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "NTB",
-        "rate": "305.2000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "HNB",
-        "rate": "301.0000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      },
-      {
-        "bankCode": "DFCC",
-        "rate": "303.0000",
-        "date": "2024-04-25",
-        "lastUpdated": "2024-04-25T11:12:22.943557Z"
-      }
-    ],
-    "2024-04-26": [
-      {
-        "bankCode": "STANCHART",
-        "rate": "303.0000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "SEYLAN",
-        "rate": "300.5000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "PEOPLES",
-        "rate": "298.9603",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "NDB",
-        "rate": "300.4000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "HSBC",
-        "rate": "302.4900",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "COMBANK",
-        "rate": "299.5000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "SAMPATH",
-        "rate": "310.5000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "BOC",
-        "rate": "301.0000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "NSB",
-        "rate": "301.5000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "UNION",
-        "rate": "301.5000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "NTB",
-        "rate": "304.0000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "HNB",
-        "rate": "299.0000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      },
-      {
-        "bankCode": "DFCC",
-        "rate": "302.0000",
-        "date": "2024-04-26",
-        "lastUpdated": "2024-04-26T11:09:42.62818Z"
-      }
-    ],
-    "2024-04-27": [
-      {
-        "bankCode": "STANCHART",
-        "rate": "303.0000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "SEYLAN",
-        "rate": "300.5000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "PEOPLES",
-        "rate": "298.9603",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "NDB",
-        "rate": "300.4000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "HSBC",
-        "rate": "302.4900",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "COMBANK",
-        "rate": "299.5000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "SAMPATH",
-        "rate": "310.5000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "BOC",
-        "rate": "301.0000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "NSB",
-        "rate": "301.5000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "UNION",
-        "rate": "301.5000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "NTB",
-        "rate": "304.0000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "HNB",
-        "rate": "299.0000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      },
-      {
-        "bankCode": "DFCC",
-        "rate": "302.0000",
-        "date": "2024-04-27",
-        "lastUpdated": "2024-04-27T11:07:52.120637Z"
-      }
-    ],
-    "2024-04-28": [
-      {
-        "bankCode": "STANCHART",
-        "rate": "303.0000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:11.017568Z"
-      },
-      {
-        "bankCode": "SEYLAN",
-        "rate": "300.5000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:16.134019Z"
-      },
-      {
-        "bankCode": "PEOPLES",
-        "rate": "298.9603",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:22.16152Z"
-      },
-      {
-        "bankCode": "NDB",
-        "rate": "300.4000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:29.39056Z"
-      },
-      {
-        "bankCode": "HSBC",
-        "rate": "302.4900",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:34.50928Z"
-      },
-      {
-        "bankCode": "COMBANK",
-        "rate": "299.5000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:38.724123Z"
-      },
-      {
-        "bankCode": "SAMPATH",
-        "rate": "310.5000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:44.442193Z"
-      },
-      {
-        "bankCode": "BOC",
-        "rate": "301.0000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:49.254059Z"
-      },
-      {
-        "bankCode": "NSB",
-        "rate": "301.5000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:51.066012Z"
-      },
-      {
-        "bankCode": "UNION",
-        "rate": "301.5000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:08:06.405974Z"
-      },
-      {
-        "bankCode": "NTB",
-        "rate": "304.0000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:07:56.471786Z"
-      },
-      {
-        "bankCode": "HNB",
-        "rate": "299.0000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:08:00.682336Z"
-      },
-      {
-        "bankCode": "DFCC",
-        "rate": "302.0000",
-        "date": "2024-04-28",
-        "lastUpdated": "2024-04-28T11:08:03.692117Z"
-      }
-    ]
-  },
-  "bankDetailsMap": {
-    "NTB": {
-      "bankCode": "NTB",
-      "shortName": "NTB",
-      "longName": "Nations Truest Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/ntb-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#006D77"
-      }
-    },
-    "COMBANK": {
-      "bankCode": "COMBANK",
-      "shortName": "COMBANK",
-      "longName": "Commercial Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/combank-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#83C5BE"
-      }
-    },
-    "HNB": {
-      "bankCode": "HNB",
-      "shortName": "HNB",
-      "longName": "Hatton National Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/hnb-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#FFDDD2"
-      }
-    },
-    "BOC": {
-      "bankCode": "BOC",
-      "shortName": "BOC",
-      "longName": "Bank Of Ceylon",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/boc-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#E29578"
-      }
-    },
-    "SAMPATH": {
-      "bankCode": "SAMPATH",
-      "shortName": "Sampath Bank",
-      "longName": "Sampath Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/sampath-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#A7CECB"
-      }
-    },
-    "SEYLAN": {
-      "bankCode": "SEYLAN",
-      "shortName": "Seylan Bank",
-      "longName": "Seylan Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/seylan-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#8BA6A9"
-      }
-    },
-    "NDB": {
-      "bankCode": "NDB",
-      "shortName": "NDB",
-      "longName": "National Development Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/ndb-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#75704E"
-      }
-    },
-    "NSB": {
-      "bankCode": "NSB",
-      "shortName": "NSB",
-      "longName": "National Savings Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/nsb-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#CACC90"
-      }
-    },
-    "DFCC": {
-      "bankCode": "DFCC",
-      "shortName": "DFCC Bank",
-      "longName": "DFCC Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/dfcc-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#F4EBBE"
-      }
-    },
-    "PEOPLES": {
-      "bankCode": "PEOPLES",
-      "shortName": "Peoples Bank",
-      "longName": "Peoples Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/peoples-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#EFAAC4"
-      }
-    },
-    "UNION": {
-      "bankCode": "UNION",
-      "shortName": "Union Bank",
-      "longName": "Union Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/union-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#FFC4D1"
-      }
-    },
-    "HSBC": {
-      "bankCode": "HSBC",
-      "shortName": "HSBC",
-      "longName": "HSBC Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/hsbc-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#FFE8E1"
-      }
-    },
-    "STANCHART": {
-      "bankCode": "STANCHART",
-      "shortName": "STANCHART",
-      "longName": "Standard Chartered Bank",
-      "logo": {
-        "defaultUrl": "https://assets.lkr.exchange/images/logos/stanchart-logo-min.png"
-      },
-      "themeConfig": {
-        "accentColor": "#D4DCCD"
-      }
-    }
-  }
 }

@@ -24,7 +24,7 @@ export default function Convertor({
   bankDetails,
 }) {
   const onBankChange = (newBank) => {
-    navigate(getUpdatedPath(mode, currencyCode, newBank.id))
+    navigate(getUpdatedPath(mode, currencyCode, newBank.id));
   };
   const bankDropDownData = getBankDropDownListData(bankDetails);
   const selectedBankData = _.filter(
@@ -92,7 +92,8 @@ export default function Convertor({
             <div className="sm:col-span-11">
               <div className="px-4 text-center sm:px-0">
                 <h3 className="text-base font-semibold leading-7 text-gray-900">
-                  1.00 USD = <span className="text-green-800">307.58</span> LKR
+                  1.00 {currencyCode.toUpperCase()} ={' '}
+                  <span className="text-green-800">{rate}</span> LKR
                 </h3>
                 <p className="text-sm leading-6 text-gray-500">
                   Last updated 14 minutes ago

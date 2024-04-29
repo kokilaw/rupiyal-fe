@@ -48,6 +48,7 @@ export default function CurrenctConverterPage({ params = {}, searchParams }) {
             currencyCode={currency || DEFAULT_CURRENCY}
             bankCode={bankCode || DEFAULT_BANK}
             bankDetails={response.bankDetailsMap}
+            latestRateForBank={response.latestRateForBank}
           />
         </div>
         <div className="relative mt-8 w-full rounded-lg ring-1 ring-slate-200">
@@ -56,6 +57,7 @@ export default function CurrenctConverterPage({ params = {}, searchParams }) {
               ratesSummary={response.ratesSummary}
               ratesMap={response.ratesMap}
               bankDetails={response.bankDetailsMap}
+              allBanksSummary={response.allBanksSummary}
             />
           </div>
         </div>

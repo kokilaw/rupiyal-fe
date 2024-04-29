@@ -11,7 +11,7 @@ import {
 } from '@tremor/react';
 import _ from 'lodash';
 import moment from 'moment/moment';
-import bankCodeColorMapping from '@/misc/bank-code-color-mapping.json'
+import bankCodeColorMapping from '@/misc/bank-code-color-mapping.json';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -19,55 +19,61 @@ function classNames(...classes) {
 
 const getFormattedChangeValue = (change) => {
   if (change > 0) {
-    return `+${Number(change).toFixed(2)}`
+    return `Rs. +${Number(change).toFixed(2)}`;
   } else if (change < 0) {
-    return `-${Number(change).toFixed(2)}`
+    return `Rs. -${Number(change).toFixed(2)}`;
   } else {
-    return `${Number(change).toFixed(0)}`
+    return `Rs. ${Number(change).toFixed(0)}`;
   }
-}
+};
 
 const getChartCategories = (bankDetails) => {
-  return _.keys(bankDetails).map(entry => bankDetails[entry].longName);
-}
+  return _.keys(bankDetails).map((entry) => bankDetails[entry].longName);
+};
 
 const getChartLegenColors = (bankDetails) => {
-  return _.keys(bankDetails).map(entry => bankDetails[entry].themeConfig.accentColor);
-}
+  return _.keys(bankDetails).map(
+    (entry) => bankDetails[entry].themeConfig.accentColor,
+  );
+};
 
 const getChartData = (ratesMap, bankDetails) => {
-  const chartData=[]
-  _.keys(ratesMap).forEach(date => {
+  const chartData = [];
+  _.keys(ratesMap).forEach((date) => {
     const ratesForDate = ratesMap[date];
     const data = {};
-    data['date'] = moment(date).format("MMM Do");
-    ratesForDate.forEach(entry => {
+    data['date'] = moment(date).format('MMM Do');
+    ratesForDate.forEach((entry) => {
       data[bankDetails[entry.bankCode].longName] = entry.rate;
-    })
+    });
     chartData.push(data);
   });
   return chartData;
-}
+};
 
 const getFormattedSummaryValues = (ratesSummary, bankDetails) => {
-  const formattedData = ratesSummary.map(rateEntry => {
-    const humanizedLastUpdatedTime  = moment(rateEntry.lastUpdated).fromNow();
+  const formattedData = ratesSummary.map((rateEntry) => {
+    const humanizedLastUpdatedTime = moment(rateEntry.lastUpdated).fromNow();
     return {
       name: bankDetails[rateEntry.bankCode].longName,
       rate: valueFormatter(rateEntry.rate),
       change: getFormattedChangeValue(rateEntry.change),
       lastUpdate: humanizedLastUpdatedTime,
       bgColor: `bg-${bankCodeColorMapping[rateEntry.bankCode]}-500`,
-      changeType: rateEntry.isPositive ? 'positive' : 'negative'
-    }
+      changeType: rateEntry.isPositive ? 'positive' : 'negative',
+    };
   });
-  return _.sortBy(formattedData, entry => entry.rate);
+  return _.sortBy(formattedData, (entry) => entry.rate);
 };
 
-const valueFormatter = (number) =>
-  `Rs. ${Number(number).toFixed(2)}`;
+const valueFormatter = (number) => `Rs. ${Number(number).toFixed(2)}`;
 
-export default function Charts({ ratesSummary, ratesMap, bankDetails }) {
+export default function Charts({
+  ratesSummary,
+  ratesMap,
+  bankDetails,
+  allBanksSummary,
+}) {
   const formattedSummaryValues = getFormattedSummaryValues(
     ratesSummary,
     bankDetails,
@@ -80,12 +86,20 @@ export default function Charts({ ratesSummary, ratesMap, bankDetails }) {
         Average Rate (All Banks)
       </h3>
       <p className="mt-1 text-tremor-metric font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-        Rs. 208.29
+        {valueFormatter(allBanksSummary.averageRate)}
       </p>
       <p className="mt-1 text-tremor-default font-medium">
-        <span className="text-emerald-700 dark:text-emerald-500">
-          +Rs. 0.90 (0.21%)
-        </span>{' '}
+        {allBanksSummary.isPositive ? (
+          <span className="text-emerald-700 dark:text-emerald-500">
+            {getFormattedChangeValue(allBanksSummary.averageChange)} (
+            {Number(allBanksSummary.averagechangePercentage).toFixed(2)}%)
+          </span>
+        ) : (
+          <span className="text-red-700 dark:text-red-500">
+            {getFormattedChangeValue(allBanksSummary.averageChange)} (
+            {Number(allBanksSummary.averagechangePercentage).toFixed(2)}%)
+          </span>
+        )}{' '}
         <span className="font-normal text-tremor-content dark:text-dark-tremor-content">
           Past 24 hours
         </span>
@@ -126,7 +140,7 @@ export default function Charts({ ratesSummary, ratesMap, bankDetails }) {
               <TableCell className="font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
                 <div className="flex space-x-3">
                   <span
-                    className={classNames(item.bgColor, "w-1 shrink-0 rounded")}
+                    className={classNames(item.bgColor, 'w-1 shrink-0 rounded')}
                     aria-hidden={true}
                   />
                   <span>{item.name}</span>
