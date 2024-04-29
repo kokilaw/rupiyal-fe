@@ -1,3 +1,5 @@
+'use client'
+
 import CurrencySelectListBox from '@/components/CurrencySelectListBox';
 import BankSelectListBox from '@/components/BankSelectListBox';
 import { ArrowsRightLeftIcon } from '@heroicons/react/20/solid';
@@ -56,7 +58,7 @@ export default function Convertor({
 
   useEffect(() => {
     setConvertedValue((parseFloat(inputValue.replace(/,/g, '')) * latestRateForBank.rate).toLocaleString());
-  }, [inputValue]);
+  }, [inputValue, latestRateForBank.rate]);
 
   const onBankChange = (newBank) => {
     navigate(getUpdatedPath(mode, currencyCode, newBank.id));
