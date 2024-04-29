@@ -8,6 +8,7 @@ import {
   DEFAULT_MODE,
 } from '@/utils/Constants';
 import response from '@/misc/converter-page-sample-response.json';
+import { getCurrencyConverterPageData } from '@/client/apiClient';
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const { path } = params;
@@ -26,10 +27,19 @@ export async function generateMetadata({ params, searchParams }, parent) {
   // };
 }
 
-export default function CurrenctConverterPage({ params = {}, searchParams }) {
+export default async function CurrenctConverterPage({
+  params = {},
+  searchParams,
+}) {
   const { path } = params;
   const { bankCode } = searchParams;
   const { mode, currency } = extractPathData(path);
+  const response = await getCurrencyConverterPageData(
+    currency,
+    mode,
+    bankCode,
+    7,
+  );
   return (
     <div className="relative isolate px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-32 sm:py-32 lg:py-40">

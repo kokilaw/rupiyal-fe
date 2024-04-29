@@ -16,7 +16,7 @@ export const getCurrencyFormattedChangeValue = (change) => {
   if (change > 0) {
     return `Rs. +${Number(change).toFixed(2)}`;
   } else if (change < 0) {
-    return `Rs. -${Number(change).toFixed(2)}`;
+    return `Rs. ${Number(change).toFixed(2)}`;
   } else {
     return `Rs. ${Number(change).toFixed(0)}`;
   }
