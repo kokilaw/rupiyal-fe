@@ -8,7 +8,7 @@ export const getCurrencyConverterPageData = async (
 ) => {
   try {
     const url =
-      `${API_BASE_URL}/currency-converter?` +
+      `${API_BASE_URL}currency-converter?` +
       new URLSearchParams({
         currencyCode,
         numberOfDays: lastNDates,
