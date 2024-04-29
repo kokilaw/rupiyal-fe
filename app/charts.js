@@ -12,20 +12,11 @@ import {
 import _ from 'lodash';
 import moment from 'moment/moment';
 import bankCodeColorMapping from '@/misc/bank-code-color-mapping.json';
+import { getCurrencyFormattedChangeValue } from '@/utils/CurrencyUtils';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
-
-const getFormattedChangeValue = (change) => {
-  if (change > 0) {
-    return `Rs. +${Number(change).toFixed(2)}`;
-  } else if (change < 0) {
-    return `Rs. -${Number(change).toFixed(2)}`;
-  } else {
-    return `Rs. ${Number(change).toFixed(0)}`;
-  }
-};
 
 const getChartCategories = (bankDetails) => {
   return _.keys(bankDetails).map((entry) => bankDetails[entry].longName);
@@ -57,7 +48,7 @@ const getFormattedSummaryValues = (ratesSummary, bankDetails) => {
     return {
       name: bankDetails[rateEntry.bankCode].longName,
       rate: valueFormatter(rateEntry.rate),
-      change: getFormattedChangeValue(rateEntry.change),
+      change: getCurrencyFormattedChangeValue(rateEntry.change),
       lastUpdate: humanizedLastUpdatedTime,
       bgColor: `bg-${bankCodeColorMapping[rateEntry.bankCode]}-500`,
       changeType: rateEntry.isPositive ? 'positive' : 'negative',
@@ -91,12 +82,12 @@ export default function Charts({
       <p className="mt-1 text-tremor-default font-medium">
         {allBanksSummary.isPositive ? (
           <span className="text-emerald-700 dark:text-emerald-500">
-            {getFormattedChangeValue(allBanksSummary.averageChange)} (
+            {getCurrencyFormattedChangeValue(allBanksSummary.averageChange)} (
             {Number(allBanksSummary.averagechangePercentage).toFixed(2)}%)
           </span>
         ) : (
           <span className="text-red-700 dark:text-red-500">
-            {getFormattedChangeValue(allBanksSummary.averageChange)} (
+            {getCurrencyFormattedChangeValue(allBanksSummary.averageChange)} (
             {Number(allBanksSummary.averagechangePercentage).toFixed(2)}%)
           </span>
         )}{' '}

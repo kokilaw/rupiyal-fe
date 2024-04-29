@@ -4,6 +4,8 @@ import { ArrowsRightLeftIcon } from '@heroicons/react/20/solid';
 import _ from 'lodash';
 import { navigate } from './actions';
 import { getUpdatedPath } from '@/utils/PathUtils';
+import { formatNumber } from '@/utils/CurrencyUtils';
+import moment from 'moment';
 
 const getBankDropDownListData = (bankDetails) => {
   const data = _.keys(bankDetails).map((entry) => {
@@ -22,6 +24,7 @@ export default function Convertor({
   currencyCode,
   rate,
   bankDetails,
+  latestRateForBank
 }) {
   const onBankChange = (newBank) => {
     navigate(getUpdatedPath(mode, currencyCode, newBank.id));
@@ -93,10 +96,10 @@ export default function Convertor({
               <div className="px-4 text-center sm:px-0">
                 <h3 className="text-base font-semibold leading-7 text-gray-900">
                   1.00 {currencyCode.toUpperCase()} ={' '}
-                  <span className="text-green-800">{rate}</span> LKR
+                  <span className="text-green-800">{formatNumber(latestRateForBank.rate)}</span> LKR
                 </h3>
                 <p className="text-sm leading-6 text-gray-500">
-                  Last updated 14 minutes ago
+                  Last updated{' '}{moment(latestRateForBank.lastUpdated).fromNow()} 
                 </p>
               </div>
             </div>
