@@ -24,9 +24,10 @@ export const getCurrencyConverterPageData = async (
     });
 
     if (!response.ok) {
-      console.log(response);
+      const text = await response.text();
+      console.log(text);
       throw new Error(
-        `Error occurred while fetching currency-converter page data`,
+        `Error occurred while fetching currency-converter page data - ${text}`,
       );
     }
 

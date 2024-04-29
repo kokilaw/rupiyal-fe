@@ -36,7 +36,7 @@ export default async function CurrenctConverterPage({
   const { mode, currency } = extractPathData(path);
   const response = await getCurrencyConverterPageData(
     currency,
-    mode,
+    mode.toUpperCase(),
     bankCode,
     7,
   );
