@@ -58,7 +58,12 @@ export default function Convertor({
     (entry) => entry.id == bankCode,
   )[0];
   const supportedCurrencies = getSupportedCurrencies();
-  const selectedCurrency = getSupportedCurrencies().filter(entry => entry.currency == currencyCode)[0]
+  const selectedCurrency = getSupportedCurrencies().filter(
+    (entry) => entry.currency == currencyCode,
+  )[0];
+  const onCurrencySelectionChange = (newCurrencyCode) => {
+    navigate(getUpdatedPath(mode, newCurrencyCode, bankCode));
+  };
 
   return (
     <div className="relative w-full rounded-lg ring-1 ring-slate-200">
@@ -84,6 +89,7 @@ export default function Convertor({
                   <CurrencySelectListBox
                     supportedCurrencies={supportedCurrencies}
                     selectedCurrency={selectedCurrency}
+                    onCurrencyChange={onCurrencySelectionChange}
                   />
                 </div>
               </div>
@@ -113,7 +119,10 @@ export default function Convertor({
                   className="block w-full rounded-md border-0 py-1.5 text-lg leading-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 />
                 <div className="absolute inset-y-0 right-0">
-                  <CurrencySelectListBox supportedCurrencies={getLKRCurrencyData()} selectedCurrency={getLKRCurrencyData()[0]} />
+                  <CurrencySelectListBox
+                    supportedCurrencies={getLKRCurrencyData()}
+                    selectedCurrency={getLKRCurrencyData()[0]}
+                  />
                 </div>
               </div>
             </div>

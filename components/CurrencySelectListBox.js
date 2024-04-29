@@ -9,11 +9,18 @@ function classNames(...classes) {
 export default function CurrencySelectListBox({
   supportedCurrencies,
   selectedCurrency,
+  onCurrencyChange
 }) {
   const [selected, setSelected] = useState(selectedCurrency);
+  const onChange = (currency) => {
+    setSelected(currency);
+    if (onCurrencyChange) {
+      onCurrencyChange(currency.currency);
+    }
+  }
 
   return (
-    <Listbox value={selected} onChange={setSelected}>
+    <Listbox value={selected} onChange={onChange}>
       {({ open }) => (
         <>
           <div className="">
