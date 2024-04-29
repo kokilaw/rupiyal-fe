@@ -8,6 +8,7 @@ import { formatNumber } from '@/utils/CurrencyUtils';
 import moment from 'moment';
 
 import supportedCurrencies from '@/misc/supported-currencies.json';
+import { useEffect, useState } from 'react';
 
 const getBankDropDownListData = (bankDetails) => {
   const data = _.keys(bankDetails).map((entry) => {
@@ -49,6 +50,14 @@ export default function Convertor({
   bankDetails,
   latestRateForBank,
 }) {
+
+  const [inputValue, setInputValue] = useState('1.00');
+  const [convertedValue, setConvertedValue] = useState(latestRateForBank.rate.toLocaleString());
+
+  useEffect(() => {
+    setConvertedValue((parseFloat(inputValue.replace(/,/g, '')) * latestRateForBank.rate).toLocaleString());
+  }, [inputValue]);
+
   const onBankChange = (newBank) => {
     navigate(getUpdatedPath(mode, currencyCode, newBank.id));
   };
@@ -79,10 +88,12 @@ export default function Convertor({
               </label>
               <div className="relative mt-2">
                 <input
-                  type="text"
+                  type="number"
                   name="amount"
                   id="amount"
                   autoComplete="given-name"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-lg leading-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 />
                 <div className="absolute inset-y-0 right-0">
@@ -116,6 +127,7 @@ export default function Convertor({
                   name="convertedTo"
                   id="convertedTo"
                   autoComplete="family-name"
+                  value={convertedValue}
                   className="block w-full rounded-md border-0 py-1.5 text-lg leading-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 />
                 <div className="absolute inset-y-0 right-0">
