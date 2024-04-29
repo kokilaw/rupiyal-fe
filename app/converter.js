@@ -7,6 +7,8 @@ import { getUpdatedPath } from '@/utils/PathUtils';
 import { formatNumber } from '@/utils/CurrencyUtils';
 import moment from 'moment';
 
+import supportedCurrencies from '@/misc/supported-currencies.json';
+
 const getBankDropDownListData = (bankDetails) => {
   const data = _.keys(bankDetails).map((entry) => {
     return {
@@ -18,13 +20,34 @@ const getBankDropDownListData = (bankDetails) => {
   return data;
 };
 
+const getSupportedCurrencies = () => {
+  return supportedCurrencies.map((currency) => {
+    const iso2CountryCode = currency.substring(0, 2);
+    const flagUrl = `https://flagcdn.com/w80/${iso2CountryCode.toLowerCase()}.png`;
+    return {
+      countryCode: iso2CountryCode,
+      flagUrl: flagUrl,
+      currency,
+    };
+  });
+};
+
+const getLKRCurrencyData = () => {
+  return [
+    {
+      countryCode: 'LK',
+      flagUrl: `https://flagcdn.com/w80/lk.png`,
+      currency: 'LKR',
+    },
+  ];
+};
+
 export default function Convertor({
   mode,
   bankCode,
   currencyCode,
-  rate,
   bankDetails,
-  latestRateForBank
+  latestRateForBank,
 }) {
   const onBankChange = (newBank) => {
     navigate(getUpdatedPath(mode, currencyCode, newBank.id));
@@ -34,6 +57,8 @@ export default function Convertor({
     bankDropDownData,
     (entry) => entry.id == bankCode,
   )[0];
+  const supportedCurrencies = getSupportedCurrencies();
+  const selectedCurrency = getSupportedCurrencies().filter(entry => entry.currency == currencyCode)[0]
 
   return (
     <div className="relative w-full rounded-lg ring-1 ring-slate-200">
@@ -56,7 +81,10 @@ export default function Convertor({
                   className="block w-full rounded-md border-0 py-1.5 text-lg leading-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 />
                 <div className="absolute inset-y-0 right-0">
-                  <CurrencySelectListBox />
+                  <CurrencySelectListBox
+                    supportedCurrencies={supportedCurrencies}
+                    selectedCurrency={selectedCurrency}
+                  />
                 </div>
               </div>
             </div>
@@ -85,10 +113,7 @@ export default function Convertor({
                   className="block w-full rounded-md border-0 py-1.5 text-lg leading-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 />
                 <div className="absolute inset-y-0 right-0">
-                  <CurrencySelectListBox
-                    disabled={true}
-                    selectedCurrencyIndex={4}
-                  />
+                  <CurrencySelectListBox supportedCurrencies={getLKRCurrencyData()} selectedCurrency={getLKRCurrencyData()[0]} />
                 </div>
               </div>
             </div>
@@ -96,10 +121,13 @@ export default function Convertor({
               <div className="px-4 text-center sm:px-0">
                 <h3 className="text-base font-semibold leading-7 text-gray-900">
                   1.00 {currencyCode.toUpperCase()} ={' '}
-                  <span className="text-green-800">{formatNumber(latestRateForBank.rate)}</span> LKR
+                  <span className="text-green-800">
+                    {formatNumber(latestRateForBank.rate)}
+                  </span>{' '}
+                  LKR
                 </h3>
                 <p className="text-sm leading-6 text-gray-500">
-                  Last updated{' '}{moment(latestRateForBank.lastUpdated).fromNow()} 
+                  Last updated {moment(latestRateForBank.lastUpdated).fromNow()}
                 </p>
               </div>
             </div>

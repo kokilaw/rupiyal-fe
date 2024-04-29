@@ -2,48 +2,15 @@ import { Fragment, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
-const people = [
-  {
-    id: 1,
-    name: 'USD',
-    avatar: 'https://flagcdn.com/w80/us.png',
-  },
-  {
-    id: 2,
-    name: 'AUD',
-    avatar: 'https://flagcdn.com/w80/au.png',
-  },
-  {
-    id: 3,
-    name: 'INR',
-    avatar: 'https://flagcdn.com/w80/in.png',
-  },
-  {
-    id: 4,
-    name: 'GBP',
-    avatar: 'https://flagcdn.com/w80/gb.png',
-  },
-  {
-    id: 5,
-    name: 'EUR',
-    avatar: 'https://flagcdn.com/w80/eu.png',
-  },
-  {
-    id: 5,
-    name: 'LKR',
-    avatar: 'https://flagcdn.com/w80/lk.png',
-  },
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function CurrencySelectListBox({
-  selectedCurrencyIndex,
-  disabled,
+  supportedCurrencies,
+  selectedCurrency,
 }) {
-  const [selected, setSelected] = useState(people[3]);
+  const [selected, setSelected] = useState(selectedCurrency);
 
   return (
     <Listbox value={selected} onChange={setSelected}>
@@ -52,15 +19,14 @@ export default function CurrencySelectListBox({
           <div className="">
             <Listbox.Button
               className="relative w-max cursor-default py-1.5 pl-3 pr-10 text-left text-lg leading-10 text-gray-900"
-              disabled={disabled}
             >
               <span className="flex items-center">
                 <img
-                  src={selected.avatar}
+                  src={selected.flagUrl}
                   alt=""
                   className="h-7 w-7 rounded-full object-cover"
                 />
-                <span className="ml-3 block truncate">{selected.name}</span>
+                <span className="ml-3 block truncate">{selected.currency}</span>
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
                 <ChevronUpDownIcon
@@ -78,22 +44,22 @@ export default function CurrencySelectListBox({
               leaveTo="opacity-0"
             >
               <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-lg">
-                {people.map((person) => (
+                {supportedCurrencies.map((entry) => (
                   <Listbox.Option
-                    key={person.id}
+                    key={entry.currency}
                     className={({ active }) =>
                       classNames(
                         active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                         'relative cursor-default select-none py-2 pl-3 pr-9',
                       )
                     }
-                    value={person}
+                    value={entry}
                   >
                     {({ selected, active }) => (
                       <>
                         <div className="flex items-center">
                           <img
-                            src={person.avatar}
+                            src={entry.flagUrl}
                             alt=""
                             className="h-7 w-7 flex-shrink-0 rounded-full object-cover"
                           />
@@ -103,7 +69,7 @@ export default function CurrencySelectListBox({
                               'ml-3 block truncate',
                             )}
                           >
-                            {person.name}
+                            {entry.currency}
                           </span>
                         </div>
 
