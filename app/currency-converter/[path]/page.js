@@ -16,9 +16,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const localCurrencyName = getCurrencyName('LKR');
 
   return {
-    title: `1 ${currencyName} equals to 205.00 ${localCurrencyName} | Currency ${currency}/LKR - LKR.exchange`,
+    title: `Rates for ${currency}/LKR - LKR.exchange`,
     description: `Explore the latest ${mode.toLowerCase()} rates for ${currency}`,
   };
+
+  // return {
+  //   title: `1 ${currencyName} equals to 205.00 ${localCurrencyName} | Currency ${currency}/LKR - LKR.exchange`,
+  //   description: `Explore the latest ${mode.toLowerCase()} rates for ${currency}`,
+  // };
 }
 
 export default function CurrenctConverterPage({ params = {}, searchParams }) {
