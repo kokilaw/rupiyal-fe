@@ -1,4 +1,6 @@
-const API_BASE_URL = window.config.apiUrl;
+const API_BASE_URL = window?.configs?.apiUrl
+  ? window.configs.apiUrl
+  : process.env.API_BASE_URL;
 
 export const getCurrencyConverterPageData = async (
   currencyCode,
