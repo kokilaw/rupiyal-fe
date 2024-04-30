@@ -1,20 +1,47 @@
-"use client"
+'use client';
 
-import Link from 'next/link'
-
+import Link from 'next/link';
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 const navigation = [
-  { name: 'Converter', path: '/currency-converter/buying-rate-usd?bankCode=BOC' },
+  {
+    name: 'Converter',
+    path: '/currency-converter/buying-rate-usd?bankCode=BOC',
+  },
   { name: 'Historical', path: '/historical' },
   { name: 'Banks', path: '/banks' },
   { name: 'Alerting', path: '/alerting' },
 ];
 
+const AuthButton = () => {
+  const { data: session } = useSession();
+  if (session) {
+    console.log(session);
+    return (
+      <button
+        className="text-sm font-semibold leading-6 text-gray-900"
+        onClick={() => signOut()}
+      >
+        Log Out <span aria-hidden="true">&rarr;</span>
+      </button>
+    );
+  }
+  return (
+    <button
+      className="text-sm font-semibold leading-6 text-gray-900"
+      onClick={() => signIn()}
+    >
+      Log in <span aria-hidden="true">&rarr;</span>
+    </button>
+  );
+};
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
@@ -24,11 +51,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">LKR.exchange</span>
-            <img
-              className="h-8 w-auto"
-              src="/images/favicon.ico"
-              alt=""
-            />
+            <img className="h-8 w-auto" src="/images/favicon.ico" alt="" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -53,9 +76,7 @@ export default function Header() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
+          <AuthButton />
         </div>
       </nav>
       <Dialog
@@ -98,12 +119,7 @@ export default function Header() {
                 ))}
               </div>
               <div className="py-6">
-                <Link
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </Link>
+                <AuthButton />
               </div>
             </div>
           </div>

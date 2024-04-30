@@ -1,6 +1,10 @@
 import { Inter } from 'next/font/google';
+import { getServerSession } from 'next-auth';
+
+import SessionProvider from '@/components/SessionProvider';
+
 import './globals.css';
-import Header from './Header';
+import Header from '../components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -10,7 +14,9 @@ export const metadata = {
     'Calculate currency and foreign exchange rates related to Sri Lankan Rupee (LKR) with the free lkr.exchange Currency Converter. Compare the rates between Sri Lankan banks and other financial institutes.',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session = await getServerSession();
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -39,8 +45,10 @@ export default function RootLayout({ children }) {
               }}
             />
           </div>
-          <Header />
-          {children}
+          <SessionProvider session={session}>
+            <Header />
+            {children}
+          </SessionProvider>
         </div>
       </body>
     </html>
