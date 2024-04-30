@@ -53,7 +53,7 @@ export default function Convertor({
   latestRateForBank,
 }) {
 
-  const [inputValue, setInputValue] = useState('1.00');
+  const [inputValue, setInputValue] = useState('1');
   const [convertedValue, setConvertedValue] = useState(latestRateForBank.rate.toLocaleString());
 
   useEffect(() => {
@@ -130,6 +130,7 @@ export default function Convertor({
                   id="convertedTo"
                   autoComplete="family-name"
                   value={convertedValue}
+                  readOnly
                   className="block w-full rounded-md border-0 py-1.5 text-lg leading-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
                 />
                 <div className="absolute inset-y-0 right-0">
