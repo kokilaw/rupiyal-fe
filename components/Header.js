@@ -19,7 +19,6 @@ const navigation = [
 const AuthButton = () => {
   const { data: session } = useSession();
   if (session) {
-    console.log(session);
     return (
       <button
         className="text-sm font-semibold leading-6 text-gray-900"
